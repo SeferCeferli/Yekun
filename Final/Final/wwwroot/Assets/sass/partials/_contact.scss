@@ -1,0 +1,145 @@
+#Contact{
+    padding-top: 80px;
+    padding-bottom: 50px;
+    .container{
+        .row{
+            .news-title{
+                .elementor{
+                    h2{
+                        margin: 0px 0px 30px 0px;
+                        font-size: 40px;
+                        font-family: $font-family;
+                        font-weight: 500;
+                        color: $secondary-color;
+                    }
+                }
+            }
+            .news-form{
+                .elementor-form{
+                    label{}
+                    input{
+                        padding: 7px 20px;
+                        font-family: "Open Sans", Sans-serif;
+                        font-size: 17px;
+                        display: block;
+                        min-height: 59px;
+                        font-weight: 400;
+                        width: 100%;
+                        line-height: 1.65em;
+                        color: #000000CC;
+                    }
+                    #Message{
+                        margin-top: 9px;
+                        margin-bottom: 20px;
+                        font-family: "Open Sans", Sans-serif;
+                        font-size: 17px;
+                        font-weight: 400;
+                        padding: 7px 20px;
+                        width: 100%;
+                        color: #000000CC;
+                        border-style: solid;
+                    }
+                    button{
+                        padding: 10px 20px;
+                        background: $primary-color;
+                        font-family: $font-family;
+                        color: $third-color;
+                        border-color: $primary-color;
+                        transition: linear 0.2s;
+                        &:hover{
+                            border-radius: 7px;
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+#Adress{
+    padding-top: 70px;
+    padding-bottom: 50px;
+    .container{
+        .row{
+            .col-lg-4{
+                padding-bottom: 21px;
+                .adress-widget{
+                    background: #e4e4e4;
+                    padding: 20px;
+                    height: 100%;
+                    .icon-widget{
+                        margin-bottom: 15px;
+                        i{
+                            font-size: 40px;
+                            color: $secondary-color;
+                        }
+                    }
+                    .text-widget{
+                        h3{
+                            font-family: $font-family;
+                            font-weight: 500;
+                            font-size: 18px;
+                            text-transform: uppercase;
+                        }
+                        p{
+                            font-family: $font-family;
+                            font-size: $font-size;
+                            line-height: 25px;
+                            padding-top: 10px;
+                            color: #000000CC;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+@media screen and (max-width: 1200px) {
+    #Contact{
+
+        .container{
+            .row{
+                .news-title{
+                    .elementor{
+                        h2{
+
+                        }
+                    }
+                }
+                .news-form{
+                    .elementor-form{
+                        label{}
+                        input{
+
+                        }
+                        #Message{
+
+                        }
+                        button{
+                            margin-bottom: 30px;
+                            &:hover{
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+
+
+}
+
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 576px) {
+
+}

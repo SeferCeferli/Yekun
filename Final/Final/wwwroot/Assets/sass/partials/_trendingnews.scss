@@ -1,0 +1,232 @@
+#Trending {
+    padding-bottom: 50px;
+    padding-top: 80px;
+    .container {
+        .row {
+            .single-post-wrap {
+                position: relative;
+                margin-bottom: 30px;
+                transition: 0.4s;
+                .thumb {
+                    position: relative;
+                    overflow: hidden;
+                    border-radius: 5px;
+                    &::before {
+                        content: "";
+                        background: linear-gradient(to top, rgba(32, 22, 84, 0.38) 52%, rgba(0, 0, 100, 0));
+                        height: 75%;
+                        left: 0;
+                        position: absolute;
+                        bottom: 0;
+                        border-radius: 5px;
+                        width: 100%;
+                        z-index: 4;
+                        transition: 0.4s;
+                        visibility: hidden;
+                        opacity: 0;
+                    }
+                    &::after {
+                        content: "";
+                        background: linear-gradient(to top, rgba(32, 22, 84, 0.3) 52%, rgba(0, 0, 100, 0));
+                        height: 70%;
+                        left: 0;
+                        position: absolute;
+                        bottom: 0;
+                        border-radius: 5px;
+                        width: 100%;
+                        z-index: 3;
+                        transition: 0.4s;
+                    }
+                    img {
+                        transition: 0.8s;
+                        transform: scale(1.01);
+                        max-width: 100%;
+                    }
+                }
+                .details {
+                    position: absolute;
+                    bottom: 0;
+                    padding: 18px 18px;
+                    z-index: 4;
+                    margin: 15px;
+                    background-color: rgba(255, 255, 255, 0.9);
+                    border-radius: 8px;
+                    .post-meta-single {
+                        ul {
+                            li {
+                                display: inline-block;
+                                margin: 0 6px;
+                                color: v$secondary-color;
+                                font-size: 14px;
+                                a {
+                                    background: $primary-color;
+                                    color: $third-color;
+                                    font-family: $font-family;
+                                    height: 28px;
+                                    line-height: 28px;
+                                    padding: 0 14px;
+                                    display: inline-block;
+                                    border-radius: 3px;
+                                    font-size: 15px;
+                                    text-decoration: none;
+                                }
+                                p {
+                                    margin-bottom: 0;
+                                    margin-top: 16px;
+                                    color: $secondary-color;
+                                    font-size: $font-size;
+                                    font-family: $font-family;
+                                    i {
+                                        margin-right: 5px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .title {
+                        color: $secondary-color;
+                        font-family: $font-family;
+                        font-weight: 500;
+                        a {
+                            text-decoration: none;
+                            text-decoration: none;
+                            outline: none;
+                            color: inherit;
+                            line-height: 25px;
+                            transition: linear 0.3s;
+                            &:hover {
+                                color: $primary-color;
+                            }
+                        }
+                    }
+                }
+            }
+            .section-title {
+                padding-bottom: 15px;
+                position: relative;
+                .title {
+                    margin-bottom: 0;
+                    font-size: 20px;
+                    display: inline-block;
+                    color: $secondary-color;
+                    font-weight: 500;
+                    font-family: $font-family;
+                }
+                .nxp-tab-inner {
+                    text-align: right!important;
+                    // display: flex;
+                    // justify-content: flex-end;
+                    .nav-inner {
+                        display: inline-block;
+                        border: none;
+                        .active{
+                            
+                            a{
+                                color: #097bed !important;
+                            }
+                        }
+                        .nav-item {
+                            margin: 0 10px;
+                            display: inline-block;
+                            .nav-link {
+                                color: #495057;
+                                display: inline-block;
+                                overflow: hidden;
+                                padding: 0px;
+                                padding-bottom: 16px;
+                                font-family: $font-family;
+                                transition: linear 0.3s;
+                                &:hover {
+                                    color: $primary-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .tab-content {
+
+                // .fade{
+                //     opacity: 0;
+                //     transition: opacity .15s linear;
+                // }
+                .show{
+                    opacity: 1;
+                }
+                .tab-pane {
+                    .row {
+                        .thumb {
+                            img {
+                                max-width: 100%;
+                            }
+                        }
+                        .Treding-post-list-wrap {
+                            margin-bottom: 17px;
+                            .Gallery {
+                                display: flex;
+                                .gallery-left {
+                                    margin-right: 13px;
+                                    position: relative;
+                                    img {
+                                        max-width: 75px;
+                                    }
+                                }
+                                .gallery-body {
+                                    .details {
+                                        .post-meta-single {
+                                            ul {
+                                                margin-bottom: 10px;
+                                                li {
+                                                    font-size: 14px;
+                                                    color: #201654;
+                                                    font-family: $font-family;
+                                                    i {
+                                                        margin-right: 5px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .title {
+                                            a {
+                                                text-decoration: none;
+                                                color: #201654;
+                                                font-weight: 500;
+                                                font-size: 14px;
+                                                font-family: $font-family;
+                                                display: inline-block;
+                                                line-height: 21px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .order-xl-1 {
+        -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+        order: 1;
+    }
+    .order-xl-12 {
+        order: 12;
+    }
+    .thumb {
+        img {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {}
+
+@media screen and (max-width: 768px) {}
+
+@media screen and (max-width: 576px) {}

@@ -1,0 +1,20 @@
+#SiteMap{
+    padding: 100px 0px;
+    .container{
+        .row{
+            .media{
+                img{
+                    max-width: 100%;
+                }
+
+            }
+            .description{
+                p{
+                    font-family: $font-family;
+                    font-size: 22px;
+                    line-height: 45px;
+                }
+            }
+        }
+    }
+}

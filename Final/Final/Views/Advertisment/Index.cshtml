@@ -1,0 +1,52 @@
+﻿@model List<Advertisment>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Page Title Start -->
+<section id="Page-Title">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-inner">
+                    <h5 class="page-title">Advertisment</h5>
+                    <ul class="page-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li>Advertisment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Page Title End -->
+<!-- Advertisment Start -->
+<section id="Advertisment">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="media">
+                    <img src="~/Assets/image/reklam5.jpeg" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="page advertise">
+                    @foreach (var item in Model)
+                    {
+                        <h1>@Html.Raw(item.Title)</h1>
+                        <p>
+                            @Html.Raw(item.Text)
+                        </p>
+                    }
+
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="media">
+                    <img src="~/Assets/image/reklam5.jpeg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Advertisment End -->

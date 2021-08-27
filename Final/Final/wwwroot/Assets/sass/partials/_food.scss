@@ -1,0 +1,18 @@
+#Tech-Page{
+    .container{
+        .row{
+            input{
+                &:focus{
+                    outline: none;
+                }
+            }
+            .single-post-wrap{
+                .thumb{
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,350 @@
+#Slider-news {
+    padding-bottom: 50px;
+    padding-top: 75px;
+    background: #f7fbff;
+    .container {
+        .row {
+            .section-title {
+                position: relative;
+                padding-bottom: 34px;
+                width: 100%;
+                .title {
+                    margin-bottom: 0;
+                    font-size: 20px;
+                    display: inline-block;
+                    color: $secondary-color;
+                    font-family: $font-family;
+                    font-weight: 500;
+                }
+            }
+            .section-slider {
+                position: relative;
+                .owl-nav {
+                    display: inline-block;
+                    position: absolute;
+                    top: -54px;
+                    right: -4px;
+                    button {
+                        margin-left: 21px;
+                        background: transparent;
+                        border: 0;
+                        cursor: pointer;
+                        padding: 0;
+                        color: $primary-color;
+                        font-size: 20px;
+                    }
+                }
+                .item {
+                    .slick-prev {
+                        display: block;
+                        position: absolute;
+                        top: -9%;
+                        left: 79%;
+                        &::before {
+                            color: blue;
+                            background: transparent;
+                        }
+                    }
+                    .slick-next {
+                        display: block;
+                        position: absolute;
+                        top: -9%;
+                        right: 1%;
+                        &::before {
+                            color: blue;
+                            background: transparent;
+                        }
+                    }
+                    .trending-post {
+                        .single-post-wrap {
+                            margin-bottom: 25px;
+                            position: relative;
+                            transition: 0.4s;
+                            .thumb {
+                                position: relative;
+                                margin-bottom: 0px;
+                                overflow: hidden;
+                                border-radius: 5px;
+                                img {
+                                    transition: 0.8s;
+                                    transform: scale(1.01);
+                                    min-height: 119px;
+                                    max-width: 100%;
+                                    vertical-align: middle;
+                                }
+                                &::before {
+                                    content: "";
+                                    background: linear-gradient(to top, rgba(32, 22, 84, 0.38) 52%, rgba(0, 0, 100, 0));
+                                    height: 75%;
+                                    left: 0;
+                                    position: absolute;
+                                    bottom: 0;
+                                    border-radius: 5px;
+                                    width: 100%;
+                                    z-index: 4;
+                                    transition: 0.4s;
+                                    visibility: hidden;
+                                    opacity: 0;
+                                }
+                                &::after {
+                                    content: "";
+                                    background: linear-gradient(to top, rgba(32, 22, 84, 0.6) 52%, rgba(0, 0, 100, 0));
+                                    height: 70%;
+                                    left: 0;
+                                    position: absolute;
+                                    bottom: 0;
+                                    border-radius: 5px;
+                                    width: 100%;
+                                    z-index: 3;
+                                    transition: 0.4s;
+                                }
+                            }
+                            .details {
+                                position: absolute;
+                                bottom: 0;
+                                padding: 18px 20px;
+                                z-index: 4;
+                                .post-meta-single {
+                                    margin-bottom: 8px;
+                                    p {
+                                        color: $third-color;
+                                        font-family: $font-family;
+                                        margin-bottom: 7px;
+                                        i {
+                                            margin-right: 5px;
+                                        }
+                                    }
+                                }
+                                h6 {
+                                    a {
+                                        text-decoration: none;
+                                        color: $third-color;
+                                        font-family: $font-family;
+                                        font-weight: 500;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .latestnews {
+                    .slick-prev {
+                        display: block;
+                        position: absolute;
+                        top: -10%;
+                        left: 79%;
+                        &::before {
+                            color: blue;
+                            background: transparent;
+                        }
+                    }
+                    .slick-next {
+                        display: block;
+                        position: absolute;
+                        top: -10%;
+                        right: 1%;
+                        &::before {
+                            color: blue;
+                            background: transparent;
+                        }
+                    }
+                }
+            }
+            .item {
+                position: relative;
+                .Latest-post-list-wrap {
+                    margin-bottom: 17px;
+                    .Gallery {
+                        display: flex;
+                        .gallery-left {
+                            margin-right: 13px;
+                            position: relative;
+                            img {
+                                max-width: 75px;
+                            }
+                        }
+                        .gallery-body {
+                            .details {
+                                .post-meta-single {
+                                    ul {
+                                        margin-bottom: 10px;
+                                        li {
+                                            font-size: 14px;
+                                            color: #201654;
+                                            font-family: $font-family;
+                                            i {
+                                                margin-right: 5px;
+                                            }
+                                        }
+                                    }
+                                }
+                                .title {
+                                    a {
+                                        text-decoration: none;
+                                        color: #201654;
+                                        font-weight: 500;
+                                        font-size: 14px;
+                                        font-family: $font-family;
+                                        display: inline-block;
+                                        line-height: 20px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .icon-slider {
+                    display: inline-block;
+                    position: absolute;
+                    top: -54px;
+                    right: 35px;
+                    button {
+                        margin-left: 21px;
+                        background: transparent;
+                        border: 0;
+                        cursor: pointer;
+                        padding: 0;
+                        color: $primary-color;
+                        font-size: 20px;
+                    }
+                }
+            }
+            .Latest-post-list-wrap {
+                .section {
+                    .single-post-wrap {
+                        position: relative;
+                        margin-bottom: 30px;
+                        transition: 0.4s;
+                        &:hover .thumb img {
+                            transform: scale(1.06);
+                        }
+                        .thumb {
+                            position: relative;
+                            margin-bottom: 27px;
+                            overflow: hidden;
+                            border-radius: 5px;
+                            img {
+                                transition: 0.8s;
+                                transform: scale(1.01);
+                                transform-style: preserve-3d;
+                                max-width: 100%;
+                            }
+                        }
+                        .details {
+                            .post-meta-single {
+                                ul {
+                                    margin-left: -6px;
+                                    li {
+                                        display: inline-block;
+                                        margin: 0 6px;
+                                        color: $secondary-color;
+                                        font-size: $font-size;
+                                        font-family: $font-family;
+                                        transition: linear 0.3s;
+                                        a {
+                                            background: $primary-color;
+                                            color: $third-color;
+                                            text-decoration: none;
+                                            height: 28px;
+                                            line-height: 28px;
+                                            padding: 0 14px;
+                                            display: inline-block;
+                                            border-radius: 3px;
+                                            font-size: 15px;
+                                            transition: linear 0.3s;
+                                            &:hover {
+                                                background: #0f68c0;
+                                                color: $third-color;
+                                            }
+                                        }
+                                        i {
+                                            margin-right: 5px;
+                                        }
+                                    }
+                                }
+                            }
+                            .title {
+                                color: $secondary-color;
+                                font-family: $font-family;
+                                font-weight: 500;
+                                a {
+                                    text-decoration: none;
+                                    transition: linear 0.3s;
+                                    color: inherit;
+                                    line-height: 25px;
+                                    &:hover {
+                                        color: $primary-color;
+                                    }
+                                }
+                            }
+                            p {
+                                margin-bottom: 0;
+                                margin-top: 16px;
+                                line-height: 27px;
+                                color: $secondary-color;
+                                font-family: $font-family;
+                            }
+                        }
+                    }
+                    .icon-slider {
+                        right: 0px;
+                    }
+                }
+            }
+            .social-area-list {
+                ul {
+                    li {
+                        list-style: none;
+                        border-bottom: 1px solid #ebebeb;
+                        padding-bottom: 5px;
+                        margin-bottom: 5px;
+                        a {
+                            font-size: $font-size;
+                            text-decoration: none;
+                            outline: none;
+                            color: inherit;
+                            font-family: $font-family;
+                            &:hover {
+                                color: $primary-color;
+                            }
+                            .social-icon {
+                                height: 40px;
+                                width: 40px;
+                                line-height: 40px;
+                                text-align: center;
+                                border-radius: 50%;
+                                display: inline-block;
+                                color: $third-color;
+                            }
+                            .fa-facebook {
+                                background: #3b5998;
+                            }
+                            .fa-twitter {
+                                background: #55acee;
+                            }
+                            .fa-youtube-play {
+                                background: #d42428;
+                            }
+                            .fa-instagram {
+                                background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+                            }
+                            .fa-google {
+                                background: #dc4e41;
+                            }
+                            .fa-plus {
+                                color: #3b5998;
+                                font-size: 14px;
+                                float: right;
+                                padding-top: 13px;
+                                background: none !important;
+                            }
+                            span {
+                                margin-left: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

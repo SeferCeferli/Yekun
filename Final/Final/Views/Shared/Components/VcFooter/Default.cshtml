@@ -1,0 +1,110 @@
+﻿@model VmFooter
+@{
+    Layout = null;
+}
+
+<footer>
+    <!-- Footer Start -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="widget">
+                        <h5 class="widget-title">ABOUT US</h5>
+                        <div class="widget_about">
+                            <p>@Model.Settings.Info</p>
+                            <ul class="social-area">
+                                @foreach (var item in Model.Socials)
+                                {
+                                    <li>
+                                        <a href="@item.Link" class="@item.Color" title="@item.Name"><i class="@item.Icon"></i></a>
+                                    </li>
+                                }
+
+                               
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="widget widget_tag_cloud">
+                        <h5 class="widget-title">TAGS</h5>
+                        <div class="tagcloud">
+
+                            <a href="#">Consectetur</a>
+                            <a href="#">Video</a>
+                            <a href="#">App</a>
+                            <a href="#">Food</a>
+                            <a href="#">Game</a>
+                            <a href="#">Internet</a>
+                            <a href="#">Phones</a>
+                            <a href="#">Development</a>
+                            <a href="#">Video</a>
+                            <a href="#">Game</a>
+                            <a href="#">Gadgets</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="widget">
+                        <h5 class="widget-title">CONTACTS</h5>
+                        <ul class="contact_info_list">
+                            <li><i class="fa fa-map-marker"></i> @Model.Settings.Adress</li>
+                            <li><i class="fa fa-phone"></i> @Model.Settings.Phone</li>
+                            <li><i class="fa fa-envelope-o"></i> @Model.Settings.Email1 <br> @Model.Settings.Email2</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="widget widget_recent_post">
+                        <h5 class="widget-title">POPULAR NEWS</h5>
+                        <div class="Latest-post-list-wrap" style="margin-bottom: 25px;">
+                            <div class="Gallery">
+                                <div class="gallery-left">
+                                    <img src="~/Assets/image/1.png" alt="img">
+                                </div>
+                                <div class="gallery-body">
+                                    <div class="details">
+                                        <div class="post-meta-single">
+                                            <ul>
+                                                <li><i class="fa fa-clock-o"></i>08.22.2020</li>
+                                            </ul>
+                                        </div>
+                                        <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Latest-post-list-wrap" style="margin-bottom: 25px;">
+                            <div class="Gallery">
+                                <div class="gallery-left">
+                                    <img src="~/Assets/image/2.png" alt="img">
+                                </div>
+                                <div class="gallery-body">
+                                    <div class="details">
+                                        <div class="post-meta-single">
+                                            <ul>
+                                                <li><i class="fa fa-clock-o"></i>08.22.2020</li>
+                                            </ul>
+                                        </div>
+                                        <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom text-center">
+                    <ul class="widget_nav_menu">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Terms &amp; Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <p>Copyright ©2021 Nextpage</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+</footer>

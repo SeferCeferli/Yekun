@@ -1,0 +1,87 @@
+﻿@model VmMessage
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Contact Start -->
+<section id="Contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="next-contact">
+                    <div class="news-title">
+                        <div class="elementor">
+                            <h2 class="elementor-heading">Contact Us</h2>
+                        </div>
+                    </div>
+                    <div class="news-form">
+                        <form asp-controller="Contact" asp-action="Message">
+                        <div class="elementor-form">
+                            
+                                <label for="Name" ></label>
+                                <input type="text" asp-for="Name" placeholder="Name">
+                                <label for="Email" ></label>
+                                <input type="email" asp-for="Email" placeholder="Email">
+                                <label for="Message" ></label>
+                                <textarea name="Message"  asp-for="Text" type="text" id="Message" cols="30" rows="10" placeholder="Message"></textarea>
+                                <button type="submit">Sumbit</button>
+
+
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="maps">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.428534652079!2d49.85172681535453!3d40.37719397936966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d077c61fef3%3A0xfa4594c97092ca01!2sAF%20Business%20House!5e0!3m2!1sen!2sus!4v1628707120974!5m2!1sen!2sus"
+                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact End -->
+<!-- Adress Start -->
+<section id="Adress">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="adress-widget">
+                    <div class="icon-widget">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div class="text-widget">
+                        <h3>Our Location</h3>
+                        <p>829 Cabell Avenue Arlington, VA 22202</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="adress-widget">
+                    <div class="icon-widget">
+                        <i class="far fa-clock"></i>
+                    </div>
+                    <div class="text-widget">
+                        <h3>Our Numbers</h3>
+                        <p>+088 012121240</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="adress-widget">
+                    <div class="icon-widget">
+                        <i class="fas fa-phone-volume"></i>
+                    </div>
+                    <div class="text-widget">
+                        <h3>EMAIL ADDRESS</h3>
+                        <p>Info@website.com</p>
+                        <p style="padding-top: unset;">Support@mail.com</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Adress End -->

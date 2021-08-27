@@ -1,0 +1,367 @@
+﻿@model VmNews
+@{
+    ViewData["Title"] = "Food";
+}
+
+<!-- Page Title Start -->
+<section id="Page-Title">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-inner">
+                    <h5 class="page-title">Food</h5>
+                    <ul class="page-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li>Food</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Page Title End -->
+<!-- Food Page Start -->
+<section id="Tech-Page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 pd-top-50">
+                <div class="row">
+                    @foreach (var item in Model.news)
+                    {
+                        if (Convert.ToString(item.Category.Name) == "Food")
+                        {
+                            <div class="col-lg-6 col-md-6">
+                                <div class="single-post-wrap style-food-overlay-bg">
+                                    <div class="thumb">
+                                        <img src="~/Uploads/Images/@item.MainImage" alt="img">
+                                    </div>
+                                    <div class="details">
+                                        <div class="post-meta-single mb-1">
+                                            <ul>
+                                                <li>
+                                                    <p><i class="fa fa-clock-o"></i>08.22.2020</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <h6 class="title"><a asp-controller="Category" asp-action="Details" asp-route-newsid="@item?.Id">A Comparison of the Sony FE 85mm f/1.4 GM and Sigma</a></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    }
+
+
+                </div>
+                <div class="add-area mb-4">
+                    <a href="#"><img src="~/Assets/image/area2.png" alt="img"></a>
+                </div>
+                <div class="row">
+
+                </div>
+                <nav class="mt-4 text-center">
+                    <ul class="pagination">
+                        <li class="page-item prev"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item next"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3 pd-top-50">
+                <div class="Latest-title  mb-4">
+                    <h6 class="title">Category</h6>
+                </div>
+                <div class="row custom-gutters-14">
+                    <div class="col-sm-6">
+                        <div class="single-category-inner">
+                            <img src="~/Assets/image/9.png" alt="img">
+                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="single-category-inner">
+                            <img src="~/Assets/image/10.png" alt="img">
+                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="single-category-inner">
+                            <img src="~/Assets/image/11.png" alt="img">
+                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="single-category-inner">
+                            <img src="~/Assets/image/12.png" alt="img">
+                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="single-category-inner">
+                            <img src="~/Assets/image/13.png" alt="img">
+                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="single-category-inner">
+                            <img src="~/Assets/image/14.png" alt="img">
+                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="single-category-inner">
+                            <img src="~/Assets/image/15.png" alt="img">
+                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="single-category-inner">
+                            <img src="~/Assets/image/16.png" alt="img">
+                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="add">
+                            <img class="w-100" src="~/Assets/image/reklam2.png" alt="img">
+                        </div>
+                    </div>
+                </div>
+                <div class="widget widget-social">
+                    <h6 class="widget-title">Join to Us</h6>
+                    <ul class="social-area social-area-2">
+                        <li><a class="facebook-icon" href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="twitter-icon" href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="youtube-icon" href="#"><i class="fa fa-youtube-play"></i></a></li>
+                        <li><a class="instagram-icon" href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a class="google-icon" href="#"><i class="fa fa-google-plus"></i></a></li>
+                    </ul>
+                </div>
+                <div class="section-title">
+                    <h6 class="title">Trending News</h6>
+                </div>
+                <div class="section-slider">
+                    <div class="item">
+                        <div class="trending-post">
+                            <div class="single-post-wrap style-overlay">
+                                <div class="thumb">
+                                    <img src="~/Assets/image/slider1.png" alt="img">
+                                </div>
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">The FAA will test drone </a></h6>
+                                </div>
+                            </div>
+                            <div class="single-post-wrap style-overlay">
+                                <div class="thumb">
+                                    <img src="~/Assets/image/slider2.png" alt="img">
+                                </div>
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">Flight schedule and quarantine</a></h6>
+                                </div>
+                            </div>
+                            <div class="single-post-wrap style-overlay">
+                                <div class="thumb">
+                                    <img src="~/Assets/image/slider3.png" alt="img">
+                                </div>
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">Indore bags cleanest city</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="trending-post">
+                            <div class="single-post-wrap style-overlay">
+                                <div class="thumb">
+                                    <img src="~/Assets/image/slider1.png" alt="img">
+                                </div>
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">The FAA will test drone </a></h6>
+                                </div>
+                            </div>
+                            <div class="single-post-wrap style-overlay">
+                                <div class="thumb">
+                                    <img src="~/Assets/image/slider2.png" alt="img">
+                                </div>
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">Flight schedule and quarantine</a></h6>
+                                </div>
+                            </div>
+                            <div class="single-post-wrap style-overlay">
+                                <div class="thumb">
+                                    <img src="~/Assets/image/slider3.png" alt="img">
+                                </div>
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">Indore bags cleanest city</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="trending-post">
+                            <div class="single-post-wrap style-overlay">
+                                <div class="thumb">
+                                    <img src="~/Assets/image/slider1.png" alt="img">
+                                </div>
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">The FAA will test drone </a></h6>
+                                </div>
+                            </div>
+                            <div class="single-post-wrap style-overlay">
+                                <div class="thumb">
+                                    <img src="~/Assets/image/slider2.png" alt="img">
+                                </div>
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">Flight schedule and quarantine</a></h6>
+                                </div>
+                            </div>
+                            <div class="single-post-wrap style-overlay">
+                                <div class="thumb">
+                                    <img src="~/Assets/image/slider3.png" alt="img">
+                                </div>
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">Indore bags cleanest city</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="nxp-tab-inner nxp-tab-post-two mb-4">
+                    <ul class="nav nav-tabs " id="nx1" role="tablist">
+                        <li class="nav-item active" data-filter=".Recent">
+                            <a class="nav-link " id="nx1-tab-1" data-toggle="pill" href="#nx1-tabs-1" role="tab" aria-selected="true">
+                                Recent
+                            </a>
+                        </li>
+                        <li class="nav-item" data-filter=".Populer">
+                            <a class="nav-link" id="nx1-tab-2" data-toggle="pill" href="#nx1-tabs-2" role="tab" aria-selected="false">
+                                Populer
+                            </a>
+                        </li>
+                        <li class="nav-item" data-filter=".Comment">
+                            <a class="nav-link" id="nx1-tab-3" data-toggle="pill" href="#nx1-tabs-3" role="tab" aria-selected="false">
+                                Comment
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="portfolio-item">
+                    <div class="Latest-post-list-wrap Recent Populer" style="margin-bottom: 25px;">
+                        <div class="Gallery">
+                            <div class="gallery-left">
+                                <img src="~/Assets/image/1.png" alt="img">
+                            </div>
+                            <div class="gallery-body">
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <ul>
+                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
+                                        </ul>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Latest-post-list-wrap Populer Recent" style="margin-bottom: 25px;">
+                        <div class="Gallery">
+                            <div class="gallery-left">
+                                <img src="~/Assets/image/2.png" alt="img">
+                            </div>
+                            <div class="gallery-body">
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <ul>
+                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
+                                        </ul>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Latest-post-list-wrap Recent Comment" style="margin-bottom: 25px;">
+                        <div class="Gallery">
+                            <div class="gallery-left">
+                                <img src="~/Assets/image/3.png" alt="img">
+                            </div>
+                            <div class="gallery-body">
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <ul>
+                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
+                                        </ul>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Latest-post-list-wrap Comment Recent Populer" style="margin-bottom: 25px;">
+                        <div class="Gallery">
+                            <div class="gallery-left">
+                                <img src="~/Assets/image/2.png" alt="img">
+                            </div>
+                            <div class="gallery-body">
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <ul>
+                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
+                                        </ul>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Latest-post-list-wrap Comment Populer" style="margin-bottom: 25px;">
+                        <div class="Gallery">
+                            <div class="gallery-left">
+                                <img src="~/Assets/image/3.png" alt="img">
+                            </div>
+                            <div class="gallery-body">
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <ul>
+                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
+                                        </ul>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @await Component.InvokeAsync("VcSubscribe")
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Food Page End -->

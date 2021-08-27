@@ -1,0 +1,170 @@
+#Cloud {
+    padding-bottom: 50px;
+    padding-top: 75px;
+    .container {
+        .row {
+            .section-title {
+                padding-bottom: 15px;
+                margin-bottom: 45px;
+                border-bottom: 1px solid #b3b3b3;
+                position: relative;
+                .row {
+                    .title {
+                        margin-bottom: 0;
+                        font-size: 20px;
+                        display: inline-block;
+                        color: $secondary-color;
+                        font-family: $font-family;
+                        font-weight: 500;
+                    }
+                    .nxp-tab-widget {
+                        text-align: right!important;
+                        .nav-trend .nav-link:focus,
+                        .nav-trend .nav-link:hover {
+                            border-color: white;
+                        }
+                        .nav-trend {
+                            display: inline-block;
+                            border: 0 !important;
+                            .nav-item {
+                                margin: 0 10px;
+                                display: inline-block;
+                                margin-bottom: -1px;
+                                &:hover {
+                                    border-color: white;
+                                }
+                                .nav-link {
+                                    color: #495057;
+                                    display: inline-block;
+                                    overflow: hidden;
+                                    padding: 0px;
+                                    padding-bottom: 16px;
+                                    font-family: $font-family;
+                                    transition: linear 0.3s;
+                                    &:hover {
+                                        color: $primary-color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .tab-content {
+                .tab-pane {
+                    .row {
+                        .single-post-wrap {
+                            position: relative;
+                            margin-bottom: 30px;
+                            transition: 0.4s;
+                            &:hover .thumb img {
+                                transform: scale(1.06);
+                            }
+                            &:hover .thumb::before {
+                                visibility: visible;
+                                opacity: 1;
+                            }
+                            .thumb {
+                                position: relative;
+                                margin-bottom: 0px;
+                                overflow: hidden;
+                                border-radius: 5px;
+                                &::before {
+                                    content: "";
+                                    background: linear-gradient(to top, rgba(32, 22, 84, 0.38) 52%, rgba(0, 0, 100, 0));
+                                    height: 75%;
+                                    left: 0;
+                                    position: absolute;
+                                    bottom: 0;
+                                    border-radius: 5px;
+                                    width: 100%;
+                                    z-index: 4;
+                                    transition: 0.4s;
+                                    visibility: hidden;
+                                    opacity: 0;
+                                }
+                                &::after {
+                                    content: "";
+                                    background: linear-gradient(to top, rgba(32, 22, 84, 0.6) 52%, rgba(0, 0, 100, 0));
+                                    height: 70%;
+                                    left: 0;
+                                    position: absolute;
+                                    bottom: 0;
+                                    border-radius: 5px;
+                                    width: 100%;
+                                    z-index: 3;
+                                    transition: 0.4s;
+                                }
+                                img {
+                                    max-width: 100%;
+                                    min-height: 119px;
+                                    transition: 0.8s;
+                                    transform: scale(1.01);
+                                }
+                                .tag-base {
+                                    background: $primary-color;
+                                    color: $third-color;
+                                    font-family: $font-family;
+                                    height: 28px;
+                                    line-height: 28px;
+                                    padding: 0 14px;
+                                    display: inline-block;
+                                    border-radius: 3px;
+                                    font-size: 15px;
+                                    text-decoration: none;
+                                    transition: linear 0.2s;
+                                    position: absolute;
+                                    left: 17px;
+                                    top: 19px;
+                                    z-index: 3;
+                                    &:hover {
+                                        background: $primary-color;
+                                    }
+                                }
+                            }
+                            .details {
+                                position: absolute;
+                                bottom: 0;
+                                padding: 18px 20px;
+                                z-index: 4;
+                                background-color: unset;
+                                .post-meta-single {
+                                    margin-bottom: 8px;
+                                    ul {
+                                        li {
+                                            color: $third-color;
+                                            font-family: $font-family;
+                                            margin: 0 6px;
+                                            margin-left: 0px;
+                                            display: inline-block;
+                                            i {
+                                                color: $third-color;
+                                                margin-right: 5px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .title {
+                                color: #fff;
+
+                                a {
+                                    text-decoration: none;
+                                    font-family: $font-family;
+                                    font-weight: 500;
+                                    font-size: 18px;
+                                    transition: linear 0.3s;
+                                    color: inherit;
+                                    line-height: 25px;
+                                    &:hover {
+                                        color: #ffbe00;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

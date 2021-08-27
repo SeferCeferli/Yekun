@@ -1,0 +1,125 @@
+#Video-Area{
+    padding-top: 80px;
+    .container{
+        .row{
+            .single-post-wrap{
+                position: relative;
+                margin-bottom: 30px;
+                transition: 0.4s;
+                &:hover .thumb img{
+                    transform: scale(1.06);
+                }
+                &:hover .thumb::before{
+                    visibility: visible;
+                    opacity: 1;
+                }
+                .thumb{
+                    position: relative;
+                    overflow: hidden;
+                    border-radius: 5px;
+                    &::before{
+                        content: "";
+                        background: linear-gradient(to top, rgba(32, 22, 84, 0.38) 52%, rgba(0, 0, 100, 0));
+                        height: 75%;
+                        left: 0;
+                        position: absolute;
+                        bottom: 0;
+                        border-radius: 5px;
+                        width: 100%;
+                        z-index: 4;
+                        transition: 0.4s;
+                        visibility: hidden;
+                        opacity: 0;
+                    }
+                    &::after{
+                        content: "";
+                        background: linear-gradient(to top, rgba(32, 22, 84, 0.6) 52%, rgba(0, 0, 100, 0));
+                        height: 70%;
+                        left: 0;
+                        position: absolute;
+                        bottom: 0;
+                        border-radius: 5px;
+                        width: 100%;
+                        z-index: 3;
+                        transition: 0.4s;
+                    }
+                    img{
+                        transition: 0.8s;
+                        transform: scale(1.01);
+                        min-height: 119px;
+                        max-width: 100%;
+                    }
+                    a{
+                        background: rgba(255, 190, 0, 0.8);
+                        color: $third-color;
+                        height: 80px;
+                        width: 80px;
+                        line-height: 80px;
+                        text-align: center;
+                        padding-left: 3px;
+                        border-radius: 50%;
+                        display: inline-block;
+                        font-size: 20px;
+                        position: absolute;
+                        left: 50%;
+                        margin-left: -40px;
+                        top: 50%;
+                        margin-top: -40px;
+                        z-index: 5;
+                    }
+                }
+                .details{
+                    position: absolute;
+                    bottom: 0;
+                    padding: 18px 20px;
+                    z-index: 4;
+                    .post-meta-single{
+                        margin-bottom: 8px;
+                        .tag-base{
+                            background: #7530ff;
+                            color: $third-color;
+                            font-family: $font-family;
+                            height: 28px;
+                            line-height: 28px;
+                            padding: 0 14px;
+                            display: inline-block;
+                            border-radius: 3px;
+                            font-size: 15px;
+                            text-decoration: none;
+                            transition: linear 0.2s;
+                            &:hover{
+                                background: #6227da;
+                            }
+                        }
+                        p{
+                            margin-bottom: 10px;
+                            margin-top: 16px;
+                            color: $third-color;
+                            font-size: $font-size;
+                            font-family: $font-family;
+                            i{
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                    .title{
+                        color: $third-color;
+                        font-family: $font-family;
+                        font-weight: 500;
+                        font-size: 18px;
+                        line-height: 1.3380952381;
+                        
+                        a{
+                            text-decoration: none;
+                            transition: linear 0.3s;
+                            color: $third-color;
+                            &:hover{
+                                color: rgba(255, 190, 0, 0.8);;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

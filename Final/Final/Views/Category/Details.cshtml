@@ -1,0 +1,527 @@
+﻿@model VmNews
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<!-- Page Title Start -->
+<section id="Page-Title">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-inner">
+                    <h5 class="page-title">Blog-details</h5>
+                    <ul class="page-list">
+                        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li>Blog-details</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Page Title End -->
+<!-- Detail Page Start  -->
+<section id="Details">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 pd-top-50">
+                <div class="blog-details-page-inner">
+                    <div class="single-blog-inner m-0">
+                        <div class="single-post-wrap style-overlay">
+                            <div class="thumb">
+                                <img src="~/Uploads/Images/@Model.news2.MainImage" style="width:100%" alt="">
+                            </div>
+                            <div class="details pb-4">
+                                <div class="post-meta-single mb-2">
+                                    <ul>
+                                        <li>
+                                            <a href="#" class="tag-base tag-blue">Tech</a>
+                                        </li>
+                                        <li>
+                                            <p>
+                                                <i class="fa fa-clock-o"></i> 08.22.2020
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-user"></i> R. Lambert
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h5 class="title mt-0">@Model?.news2.Title</h5>
+                            </div>
+                        </div>
+                        <div class="single-blog-details">
+                            <p>
+                                @Model?.news2.Description1
+                            </p>
+                            <blockquote class="blockquote">
+                                <i class="fa fa-quote-right"></i>
+                                <p>
+                                    @Model?.news2.Description2
+                                </p>
+                            </blockquote>
+                        </div>
+
+                        <div class="add-area">
+                            <a href="">
+                                <img src="~/Assets/image/47.png" alt="">
+                            </a>
+                        </div>
+                        <h5>@Model?.news2.Subtitle</h5>
+                        <p>
+                            @Model?.news2.Description3
+                        </p>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="thumb mb-3 mb-sm-0">
+                                    <img src="~/Uploads/Images/@Model?.news2.Image1" style="width: 100%" alt="">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="~/Uploads/Images/@Model?.news2.Image2" style="width: 100%" alt="">
+                            </div>
+                        </div>
+                        <div class="video-area">
+                            <h5>Expression in New Human Rights Policy</h5>
+                            <div class="single-blog-inner mb-4">
+                                <div class="thumb">
+                                    <img src="~/Uploads/Images/@Model?.news2.VideoImage" style="width:100%;" alt="">
+                                    <a data-fancybox class="video-play-btn" href="https://www.youtube.com/embed/Wimkqo8gDZ0" data-effect="mfp-zoom-in"><i class="fa fa-play"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <p>
+                            @Model?.news2.Description3
+                        </p>
+                        <div class="meta">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div class="tags">
+                                        <span>Tags:</span>
+                                        <a href="#">News,</a>
+                                        <a href="#">Blogs,</a>
+                                        <a href="#">Magazine</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-7 text-md-right">
+                                    <div class="blog-share">
+                                        <span>Share:</span>
+                                        <ul class="social-area">
+                                            <li>
+                                                <a href="" class="facebook-icon"><i class="fab fa-facebook-f"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="twitter-icon"><i class="fab fa-twitter"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="youtube-icon"><i class="fab fa-youtube"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="instagram-icon"><i class="fab fa-instagram"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="google-icon"><i class="fab fa-google-plus-g"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="author-area">
+                            <div class="media">
+                                <img src="~/Assets/image/blog8.png" alt="">
+                                <div class="media-body align-self-center">
+                                    <h4>Nathan George</h4>
+                                    <p>
+                                        @Model?.news2.Description3
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="related-post">
+                        <div class="section-title mb-0">
+                            <h5 class="mb-0">Related Post</h5>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="single-post-wrap">
+                                    <div class="thumb" style="width:100%">
+                                        <img src="~/Uploads/Images/@Model?.news2.Image1" style="width: 100% !important;" alt="">
+                                        <a class="tag-base tag-red" href="#">Tech</a>
+                                    </div>
+                                    <div class="details">
+                                        <div class="post-meta-single">
+                                            <ul>
+                                                <li>
+                                                    <i class="fa fa-clock-o"></i> 08.22.2020
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-user"></i> 08.22.2020
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <h6 class="title mt-2">
+                                            <a href="">@Model?.news2.Title</a>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="single-post-wrap">
+                                    <div class="thumb" style="width:100%">
+                                        <img src="~/Uploads/Images/@Model?.news2.Image2" style=" width: 100% !important;" alt="">
+                                        <a class="tag-base tag-red" href="#">Tech</a>
+                                    </div>
+                                    <div class="details">
+                                        <div class="post-meta-single">
+                                            <ul>
+                                                <li>
+                                                    <i class="fa fa-clock-o"></i> 08.22.2020
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-user"></i> 08.22.2020
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <h6 class="title mt-2">
+                                            <a href="">@Model?.news2.Title</a>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="single-post-wrap">
+                                    <div class="thumb">
+                                        <img src="~/Uploads/Images/@Model?.news2.MainImage"  alt="">
+                                        <a class="tag-base tag-red" href="#">Tech</a>
+                                    </div>
+                                    <div class="details">
+                                        <div class="post-meta-single">
+                                            <ul>
+                                                <li>
+                                                    <i class="fa fa-clock-o"></i> 08.22.2020
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-user"></i> 08.22.2020
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <h6 class="title mt-2">
+                                            <a href="">@Model?.news2.Title</a>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-comment">
+                        <div class="section-title">
+                            <h4>3 Comments</h4>
+                        </div>
+                        <div class="media">
+                            <div class="col-lg-12">
+                                <div id="fb-root"></div>
+                                <div class="fb-comments" data-href="https://localhost:44319/Category/Details?newsid=3" data-width="" data-numposts="10"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 pd-top-50">
+                <div class="Latest-title  mb-4">
+                    <h6 class="title">Category</h6>
+                </div>
+                <div class="row custom-gutters-14">
+                    <div class="col-sm-6">
+                        <div class="single-category-inner">
+                            <img src="~/Assets/image/9.png" alt="img">
+                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="single-category-inner">
+                            <img src="~/Assets/image/10.png" alt="img">
+                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="single-category-inner">
+                            <img src="~/Assets/image/11.png" alt="img">
+                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="single-category-inner">
+                            <img src="~/Assets/image/12.png" alt="img">
+                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="single-category-inner">
+                            <img src="~/Assets/image/13.png" alt="img">
+                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="single-category-inner">
+                            <img src="~/Assets/image/14.png" alt="img">
+                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="single-category-inner">
+                            <img src="~/Assets/image/15.png" alt="img">
+                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="single-category-inner">
+                            <img src="~/Assets/image/16.png" alt="img">
+                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="add">
+                            <img class="w-100" src="~/Assets/image/reklam2.png" alt="img">
+                        </div>
+                    </div>
+                </div>
+                <div class="widget widget-social">
+                    <h6 class="widget-title">Join to Us</h6>
+                    <ul class="social-area social-area-2">
+                        <li><a class="facebook-icon" href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="twitter-icon" href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="youtube-icon" href="#"><i class="fa fa-youtube-play"></i></a></li>
+                        <li><a class="instagram-icon" href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a class="google-icon" href="#"><i class="fa fa-google-plus"></i></a></li>
+                    </ul>
+                </div>
+                <div class="section-title">
+                    <h6 class="title">Trending News</h6>
+                </div>
+                <div class="section-slider">
+                    <div class="item">
+                        <div class="trending-post">
+                            <div class="single-post-wrap style-overlay">
+                                <div class="thumb">
+                                    <img src="~/Assets/image/slider1.png" alt="img">
+                                </div>
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">The FAA will test drone </a></h6>
+                                </div>
+                            </div>
+                            <div class="single-post-wrap style-overlay">
+                                <div class="thumb">
+                                    <img src="~/Assets/image/slider2.png" alt="img">
+                                </div>
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">Flight schedule and quarantine</a></h6>
+                                </div>
+                            </div>
+                            <div class="single-post-wrap style-overlay">
+                                <div class="thumb">
+                                    <img src="~/Assets/image/slider3.png" alt="img">
+                                </div>
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">Indore bags cleanest city</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="trending-post">
+                            <div class="single-post-wrap style-overlay">
+                                <div class="thumb">
+                                    <img src="~/Assets/image/slider1.png" alt="img">
+                                </div>
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">The FAA will test drone </a></h6>
+                                </div>
+                            </div>
+                            <div class="single-post-wrap style-overlay">
+                                <div class="thumb">
+                                    <img src="~/Assets/image/slider2.png" alt="img">
+                                </div>
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">Flight schedule and quarantine</a></h6>
+                                </div>
+                            </div>
+                            <div class="single-post-wrap style-overlay">
+                                <div class="thumb">
+                                    <img src="~/Assets/image/slider3.png" alt="img">
+                                </div>
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">Indore bags cleanest city</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="trending-post">
+                            <div class="single-post-wrap style-overlay">
+                                <div class="thumb">
+                                    <img src="~/Assets/image/slider1.png" alt="img">
+                                </div>
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">The FAA will test drone </a></h6>
+                                </div>
+                            </div>
+                            <div class="single-post-wrap style-overlay">
+                                <div class="thumb">
+                                    <img src="~/Assets/image/slider2.png" alt="img">
+                                </div>
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">Flight schedule and quarantine</a></h6>
+                                </div>
+                            </div>
+                            <div class="single-post-wrap style-overlay">
+                                <div class="thumb">
+                                    <img src="~/Assets/image/slider3.png" alt="img">
+                                </div>
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">Indore bags cleanest city</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="nxp-tab-inner nxp-tab-post-two mb-4">
+                    <ul class="nav nav-tabs " id="nx1" role="tablist">
+                        <li class="nav-item active" data-filter=".Recent">
+                            <a class="nav-link " id="nx1-tab-1" data-toggle="pill" href="#nx1-tabs-1" role="tab" aria-selected="true">
+                                Recent
+                            </a>
+                        </li>
+                        <li class="nav-item" data-filter=".Populer">
+                            <a class="nav-link" id="nx1-tab-2" data-toggle="pill" href="#nx1-tabs-2" role="tab" aria-selected="false">
+                                Populer
+                            </a>
+                        </li>
+                        <li class="nav-item" data-filter=".Comment">
+                            <a class="nav-link" id="nx1-tab-3" data-toggle="pill" href="#nx1-tabs-3" role="tab" aria-selected="false">
+                                Comment
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="portfolio-item">
+                    <div class="Latest-post-list-wrap Recent Populer" style="margin-bottom: 25px;">
+                        <div class="Gallery">
+                            <div class="gallery-left">
+                                <img src="~/Assets/image/1.png" alt="img">
+                            </div>
+                            <div class="gallery-body">
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <ul>
+                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
+                                        </ul>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Latest-post-list-wrap Populer Recent" style="margin-bottom: 25px;">
+                        <div class="Gallery">
+                            <div class="gallery-left">
+                                <img src="~/Assets/image/2.png" alt="img">
+                            </div>
+                            <div class="gallery-body">
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <ul>
+                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
+                                        </ul>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Latest-post-list-wrap Recent Comment" style="margin-bottom: 25px;">
+                        <div class="Gallery">
+                            <div class="gallery-left">
+                                <img src="~/Assets/image/3.png" alt="img">
+                            </div>
+                            <div class="gallery-body">
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <ul>
+                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
+                                        </ul>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Latest-post-list-wrap Comment Recent Populer" style="margin-bottom: 25px;">
+                        <div class="Gallery">
+                            <div class="gallery-left">
+                                <img src="~/Assets/image/2.png" alt="img">
+                            </div>
+                            <div class="gallery-body">
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <ul>
+                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
+                                        </ul>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Latest-post-list-wrap Comment Populer" style="margin-bottom: 25px;">
+                        <div class="Gallery">
+                            <div class="gallery-left">
+                                <img src="~/Assets/image/3.png" alt="img">
+                            </div>
+                            <div class="gallery-body">
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <ul>
+                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
+                                        </ul>
+                                    </div>
+                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @await Component.InvokeAsync("VcSubscribe")
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Detail Page End -->

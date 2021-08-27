@@ -1,0 +1,167 @@
+#NewsLetter{
+    padding-bottom: 50px;
+    padding-top: 80px;
+    background: #102950;
+    .container{
+        .row{
+           .single-post-list-wrap{
+            margin-bottom: 30px;
+               .media{
+                   display: flex;
+                   align-items: flex-start;
+                   .media-left{
+                    margin-right: 20px;
+                    position: relative;
+                       img{
+                        border-radius: 5px;
+                        max-width: 100%;
+                       }
+                       a{
+                        position: absolute;
+                        left: 50%;
+                        margin-left: -20px;
+                        top: 50%;
+                        margin-top: -20px;
+                        z-index: 5;
+                        background: rgba(0, 0, 0, 0.4);
+                        color: $third-color;
+                        height: 40px;
+                        width: 40px;
+                        line-height: 40px;
+                        text-align: center;
+                        padding-left: 3px;
+                        border-radius: 50%;
+                        display: inline-block;
+                        font-size: 14px;
+                       }
+                   }
+                   .media-body{
+                       .details{
+                           .post-meta-single{
+                               ul{
+                                   li{
+                                       display: inline-block;
+                                       color: $third-color;
+                                       font-family: $font-family;
+                                       font-size: $font-size;
+                                       &:first-child{
+                                           margin-right: 12px;
+                                       }
+                                       a{
+                                        left: 17px;
+                                        top: 19px;
+                                        z-index: 3;
+                                        background: $primary-color;
+                                        color: $third-color;
+                                        text-decoration: none;
+                                        height: 28px;
+                                        line-height: 28px;
+                                        padding: 0 14px;
+                                        display: inline-block;
+                                        border-radius: 3px;
+                                        font-size: 15px;
+                                        font-family: $font-family;
+                                       }
+                                       i{
+                                        margin-right: 5px;
+                                       }
+                                   }
+                               }
+                           }
+                           .title{
+                            color: $third-color;
+                            font-weight: 500;
+                            font-family: $font-family;
+                            line-height: 21px;
+                            font-size: 16px;
+                           }
+                           p{
+                            color: rgba(255, 255, 255, 0.8);
+                            margin-top: 10px;
+                            margin-bottom: 0;
+                            line-height: 25px;
+                            font-size: $font-size;
+                            font-family: $font-family;
+                           }
+                       }
+                   }
+               }
+           }
+           .single-newsletter-inner{
+               padding: 22px 25px 30px 25px;
+               border-radius: 5px;
+               background: $primary-color;
+               h5{
+                   color: $third-color;
+                   font-weight: 500;
+                   font-family: $font-family;
+                   font-size: 24px;
+                   line-height: 1.3380952381;
+               }
+               p{
+                color: $third-color;
+                margin-bottom: 28px;
+                font-family: $font-family;
+                line-height: 28px;
+               }
+               .single-input-inner{
+                margin-bottom: 12px;
+                ::placeholder{
+                    color: $background !important;
+                    font-family: $font-family;
+
+                }
+                   input{
+                    background: transparent;
+                    color: $third-color;
+                    height: 48px;
+                    width: 100%;
+                    border-radius: 5px;
+                    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+                    padding: 0 18px;
+                    font-size: inherit;
+                    &:focus{
+                        outline: none;
+                    }
+                   }
+               }
+               a{
+                cursor: pointer;
+                background: $third-color;
+                color: $secondary-color;
+                border: 0;
+                height: 48px;
+                line-height: 48px;
+                padding: 0 35px;
+                overflow: hidden;
+                position: relative;
+                border: 0;
+                transition: all 0.5s ease;
+                font-weight: 500;
+                font-size: 16px;
+                display: inline-block;
+                transform: perspective(1px) translateZ(0);
+                border-radius: 5px;
+                font-family: $font-family;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    z-index: -1;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: #283f62;
+                    transform: scaleX(0);
+                    transform-origin: 0 50%;
+                    transition-duration: 0.4s;
+                }
+                &:hover ::before {
+                    transform: scaleX(1);
+                    background: #283f62;
+                }
+               }
+           }
+        }
+    }
+}
