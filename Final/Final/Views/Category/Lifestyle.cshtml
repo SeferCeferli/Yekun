@@ -38,7 +38,7 @@
                                     <div class="details">
                                         <div class="post-meta-single mb-4 pt-1">
                                             <ul>
-                                                <li><a class="tag-base tag-light-blue" href="#">Tech</a></li>
+                                                <li><a class="tag-base tag-light-blue" href="#">@item.Category.Name</a></li>
                                                 <li><i class="fa fa-user"></i>John R.bert</li>
                                             </ul>
                                         </div>
@@ -76,54 +76,15 @@
                     <h6 class="title">Category</h6>
                 </div>
                 <div class="row custom-gutters-14">
-                    <div class="col-sm-6">
-                        <div class="single-category-inner">
-                            <img src="~/Assets/image/9.png" alt="img">
-                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
+                    @foreach (var item in Model.categories)
+                    {
+                        <div class="col-sm-6">
+                            <div class="single-category-inner">
+                                <img src="~/Uploads/Images/@item.MainImage" alt="img">
+                                <a class="tag-base tag-blue" href="cat-tech.html">@item.Name</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="single-category-inner">
-                            <img src="~/Assets/image/10.png" alt="img">
-                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="single-category-inner">
-                            <img src="~/Assets/image/11.png" alt="img">
-                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="single-category-inner">
-                            <img src="~/Assets/image/12.png" alt="img">
-                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="single-category-inner">
-                            <img src="~/Assets/image/13.png" alt="img">
-                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="single-category-inner">
-                            <img src="~/Assets/image/14.png" alt="img">
-                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="single-category-inner">
-                            <img src="~/Assets/image/15.png" alt="img">
-                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="single-category-inner">
-                            <img src="~/Assets/image/16.png" alt="img">
-                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                        </div>
-                    </div>
+                    }
                     <div class="col-12">
                         <div class="add">
                             <img class="w-100" src="~/Assets/image/reklam2.png" alt="img">
@@ -133,11 +94,12 @@
                 <div class="widget widget-social">
                     <h6 class="widget-title">Join to Us</h6>
                     <ul class="social-area social-area-2">
-                        <li><a class="facebook-icon" href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a class="twitter-icon" href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a class="youtube-icon" href="#"><i class="fa fa-youtube-play"></i></a></li>
-                        <li><a class="instagram-icon" href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a class="google-icon" href="#"><i class="fa fa-google-plus"></i></a></li>
+                        @foreach (var item in Model.socials)
+                        {
+                            <li>
+                                <a href="@item.Link" name="@item.Name" class="@item.Color" style="color:@item.Color"><i style="background:@item.Background;color:@item.Color" class="@item.Icon"></i></a>
+                            </li>
+                        }
                     </ul>
                 </div>
                 <div class="section-title">
@@ -360,7 +322,7 @@
                         </div>
                     </div>
                 </div>
-                @*@await Component.InvokeAsync("VcSubscribe")*@
+                @await Component.InvokeAsync("VcSubscribe")
             </div>
         </div>
     </div>

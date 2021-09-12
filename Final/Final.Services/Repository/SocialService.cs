@@ -31,7 +31,7 @@ namespace Final.Services.Repository
                 return false;
         }
 
-        public Social GetSocial(int id)
+        public Social GetSocial(int? id)
         {
             return _context.Socials.Find(id);
         }

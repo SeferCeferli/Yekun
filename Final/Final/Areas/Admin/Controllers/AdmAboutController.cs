@@ -1,5 +1,6 @@
 ﻿using Final.Models;
 using Final.Services.Repository.IRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Final.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("Admin"),Authorize]
     public class AdmAboutController : Controller
     {
         private readonly IAboutService _aboutService;
@@ -19,7 +20,7 @@ namespace Final.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-
+            ViewBag.Active = "About";
             return View(_aboutService.GetAbouts());
         }
         public IActionResult Update(int? AboutId)

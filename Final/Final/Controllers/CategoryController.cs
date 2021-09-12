@@ -1,7 +1,9 @@
 ﻿using Final.Models;
+using Final.Services;
 using Final.Services.Repository.IRepository;
 using Final.Services.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,65 +15,47 @@ namespace Final.Controllers
     {
         private readonly INewsService _newsService;
         private readonly ISubscribeService _subscribe;
+        private readonly ITagsService _tags;
+        private readonly ISocialService _socialService;
+        private readonly ICategoryService _categoryService;
+        private readonly AppDbContext _context;
 
-        public CategoryController(INewsService newsService,ISubscribeService subscribe)
+        public CategoryController(INewsService newsService,ISubscribeService subscribe,ITagsService tags,ISocialService socialService,ICategoryService categoryService,AppDbContext context)
         {
             _newsService = newsService;
             _subscribe = subscribe;
+            _tags = tags;
+            _socialService = socialService;
+            _categoryService = categoryService;
+            _context = context;
         }
-        public IActionResult Tech()
-        {
 
-            VmNews news = new VmNews()
+        [HttpGet]
+        public async Task<IActionResult> Index(string Newssearch)
+        {
+            ViewData["GetNewsDetails"] = Newssearch;
+            var newquery = from x in _context.News select x;
+            if (!String.IsNullOrEmpty(Newssearch))
             {
-                news = _newsService?.GetNews(),
+                newquery = newquery.Where(x => x.Title.Contains(Newssearch) || x.Category.Name.Contains(Newssearch)||x.newsToTags.FirstOrDefault().Tags.Name.Contains(Newssearch));
                
-                subscribe=_subscribe.GetSubscribe()
-            };
-                
+            }
+            return View(await newquery.AsNoTracking().ToListAsync());
+        }
+
+        public IActionResult Category(int categoryId)
+        {
             
-            return View(news);
-        }
-
-        public IActionResult Sports()
-        {
             VmNews news = new VmNews()
             {
-                news = _newsService?.GetNews(),
-
+                news = _newsService.GetNewsbyCategory(categoryId),
+                categories = _categoryService.GetCategories(),
+                socials = _socialService.GetSocials(),
                 subscribe = _subscribe.GetSubscribe()
             };
             return View(news);
         }
-        public IActionResult Fasion()
-        {
-            VmNews news = new VmNews()
-            {
-                news = _newsService?.GetNews(),
 
-                subscribe = _subscribe.GetSubscribe()
-            };
-            return View(news);
-        }
-        public IActionResult Food()
-        {
-            VmNews news = new VmNews()
-            {
-                news = _newsService?.GetNews(),
-
-                subscribe = _subscribe.GetSubscribe()
-            };
-            return View(news);
-        }
-        public IActionResult Lifestyle()
-        {
-            VmNews news = new VmNews()
-            {
-                news = _newsService?.GetNews(),
-            };
-            return View(news);
-        }
-        
         public IActionResult Subscribe(VmNews model)
         {
             if (ModelState.IsValid)
@@ -84,11 +68,20 @@ namespace Final.Controllers
             }
             return RedirectToAction(Convert.ToString(model.news2.Category.Name), "Category");
         }
-        public IActionResult Details(int newsid)
+        public IActionResult Details(int newsid )
         {
+            News dbnews = _newsService.GetNews(newsid);
+            dbnews.ViewCount++;
+            _newsService.UpdateNews(dbnews);
+            
             VmNews news = new VmNews()
             {
-                news2 = _newsService.GetNews(newsid),
+
+                news2 = dbnews,
+                news = _newsService.GetNews(),
+                Tags = _tags.GetTags(),
+                categories = _categoryService.GetCategories(),
+                socials=_socialService.GetSocials(),
                 subscribe = _subscribe.GetSubscribe()
             };
             return View(news);

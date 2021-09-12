@@ -10,3 +10,15 @@ C:\Users\kerim\Dropbox\My PC (LAPTOP-I6SA5SMH)\Desktop\Final Asp\Final\Final.Mod
 C:\Users\kerim\Dropbox\My PC (LAPTOP-I6SA5SMH)\Desktop\Final Asp\Final\Final.Models\obj\Debug\netcoreapp3.1\Final.Models.dll
 C:\Users\kerim\Dropbox\My PC (LAPTOP-I6SA5SMH)\Desktop\Final Asp\Final\Final.Models\obj\Debug\netcoreapp3.1\Final.Models.pdb
 C:\Users\kerim\Dropbox\My PC (LAPTOP-I6SA5SMH)\Desktop\Final Asp\Final\Final.Models\obj\Debug\netcoreapp3.1\Final.Models.genruntimeconfig.cache
+C:\Users\kerim\Dropbox\My PC (LAPTOP-I6SA5SMH)\Desktop\Final Asp\Yekun\Final\Final.Models\bin\Debug\netcoreapp3.1\Final.Models.deps.json
+C:\Users\kerim\Dropbox\My PC (LAPTOP-I6SA5SMH)\Desktop\Final Asp\Yekun\Final\Final.Models\bin\Debug\netcoreapp3.1\Final.Models.runtimeconfig.json
+C:\Users\kerim\Dropbox\My PC (LAPTOP-I6SA5SMH)\Desktop\Final Asp\Yekun\Final\Final.Models\bin\Debug\netcoreapp3.1\Final.Models.runtimeconfig.dev.json
+C:\Users\kerim\Dropbox\My PC (LAPTOP-I6SA5SMH)\Desktop\Final Asp\Yekun\Final\Final.Models\bin\Debug\netcoreapp3.1\Final.Models.dll
+C:\Users\kerim\Dropbox\My PC (LAPTOP-I6SA5SMH)\Desktop\Final Asp\Yekun\Final\Final.Models\bin\Debug\netcoreapp3.1\Final.Models.pdb
+C:\Users\kerim\Dropbox\My PC (LAPTOP-I6SA5SMH)\Desktop\Final Asp\Yekun\Final\Final.Models\obj\Debug\netcoreapp3.1\Final.Models.csproj.AssemblyReference.cache
+C:\Users\kerim\Dropbox\My PC (LAPTOP-I6SA5SMH)\Desktop\Final Asp\Yekun\Final\Final.Models\obj\Debug\netcoreapp3.1\Final.Models.AssemblyInfoInputs.cache
+C:\Users\kerim\Dropbox\My PC (LAPTOP-I6SA5SMH)\Desktop\Final Asp\Yekun\Final\Final.Models\obj\Debug\netcoreapp3.1\Final.Models.AssemblyInfo.cs
+C:\Users\kerim\Dropbox\My PC (LAPTOP-I6SA5SMH)\Desktop\Final Asp\Yekun\Final\Final.Models\obj\Debug\netcoreapp3.1\Final.Models.csproj.CoreCompileInputs.cache
+C:\Users\kerim\Dropbox\My PC (LAPTOP-I6SA5SMH)\Desktop\Final Asp\Yekun\Final\Final.Models\obj\Debug\netcoreapp3.1\Final.Models.dll
+C:\Users\kerim\Dropbox\My PC (LAPTOP-I6SA5SMH)\Desktop\Final Asp\Yekun\Final\Final.Models\obj\Debug\netcoreapp3.1\Final.Models.pdb
+C:\Users\kerim\Dropbox\My PC (LAPTOP-I6SA5SMH)\Desktop\Final Asp\Yekun\Final\Final.Models\obj\Debug\netcoreapp3.1\Final.Models.genruntimeconfig.cache

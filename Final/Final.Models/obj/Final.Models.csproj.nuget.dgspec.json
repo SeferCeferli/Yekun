@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Final\\Final.Models\\Final.Models.csproj": {}
+    "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Yekun\\Final\\Final.Models\\Final.Models.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Final\\Final.Models\\Final.Models.csproj": {
+    "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Yekun\\Final\\Final.Models\\Final.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Final\\Final.Models\\Final.Models.csproj",
+        "projectUniqueName": "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Yekun\\Final\\Final.Models\\Final.Models.csproj",
         "projectName": "Final.Models",
-        "projectPath": "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Final\\Final.Models\\Final.Models.csproj",
+        "projectPath": "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Yekun\\Final\\Final.Models\\Final.Models.csproj",
         "packagesPath": "C:\\Users\\kerim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Final\\Final.Models\\obj\\",
+        "outputPath": "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Yekun\\Final\\Final.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

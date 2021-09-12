@@ -21,5 +21,6 @@ namespace Final.Services
         public DbSet<Social> Socials { get; set; }
         public DbSet<Subscribe> Subscribes { get; set; }
         public DbSet<Tags> Tags { get; set; }
+        public DbSet<NewsToTag> newsToTags { get; set; }
     }
 }

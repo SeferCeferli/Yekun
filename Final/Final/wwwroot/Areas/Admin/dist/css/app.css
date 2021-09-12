@@ -162977,3 +162977,12 @@ video {
     transition-delay: 1000ms;
   }
 }
+
+
+
+#tags1 {
+
+}
+    #tags1 .select2-container {
+        width: 100% !important;
+    }

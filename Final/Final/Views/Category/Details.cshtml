@@ -1,6 +1,7 @@
 ﻿@model VmNews
 @{
     ViewData["Title"] = "Details";
+    var relatedPostCount = 1;
 }
 
 
@@ -26,6 +27,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-9 pd-top-50">
+                <div class="page-count" >
+                    <label class="label" style=" font-size: 21px; font-weight: 600;">Baxis sayi: <i class="fas fa-eye"></i> @Model.news2.ViewCount</label>
+                </div>
                 <div class="blog-details-page-inner">
                     <div class="single-blog-inner m-0">
                         <div class="single-post-wrap style-overlay">
@@ -36,11 +40,11 @@
                                 <div class="post-meta-single mb-2">
                                     <ul>
                                         <li>
-                                            <a href="#" class="tag-base tag-blue">Tech</a>
+                                            <a href="#" class="tag-base tag-blue">@Model.news2.Category.Name</a>
                                         </li>
                                         <li>
                                             <p>
-                                                <i class="fa fa-clock-o"></i> 08.22.2020
+                                                <i class="fa fa-clock-o"></i> @Model.news2.CreatedDate.ToString("dd.MM.yyyy")
                                             </p>
                                         </li>
                                         <li>
@@ -99,30 +103,24 @@
                                 <div class="col-lg-5">
                                     <div class="tags">
                                         <span>Tags:</span>
-                                        <a href="#">News,</a>
-                                        <a href="#">Blogs,</a>
-                                        <a href="#">Magazine</a>
+                                        @foreach (var tags in Model.news2.newsToTags)
+                                        {
+                                            <a>@tags.Tags.Name,</a>
+
+                                        }
                                     </div>
                                 </div>
                                 <div class="col-lg-7 text-md-right">
                                     <div class="blog-share">
                                         <span>Share:</span>
                                         <ul class="social-area">
-                                            <li>
-                                                <a href="" class="facebook-icon"><i class="fab fa-facebook-f"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="" class="twitter-icon"><i class="fab fa-twitter"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="" class="youtube-icon"><i class="fab fa-youtube"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="" class="instagram-icon"><i class="fab fa-instagram"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="" class="google-icon"><i class="fab fa-google-plus-g"></i></a>
-                                            </li>
+                                            @foreach (var item in Model.socials)
+                                            {
+                                                <li>
+                                                    <a href="@item.Link" name="@item.Name" class="@item.Color" style="@*background:@item.Background;*@color:@item.Color;width:40px;height:40px;display:inline-block;"><i style="background:@item.Background;color:@item.Color;width:40px;height:40px;border-radius:50%;line-height:40px;text-align:center" class="@item.Icon"></i></a>
+                                                </li>
+                                            }
+
                                         </ul>
                                     </div>
                                 </div>
@@ -145,75 +143,38 @@
                             <h5 class="mb-0">Related Post</h5>
                         </div>
                         <div class="row justify-content-center">
-                            <div class="col-lg-4 col-md-6">
-                                <div class="single-post-wrap">
-                                    <div class="thumb" style="width:100%">
-                                        <img src="~/Uploads/Images/@Model?.news2.Image1" style="width: 100% !important;" alt="">
-                                        <a class="tag-base tag-red" href="#">Tech</a>
-                                    </div>
-                                    <div class="details">
-                                        <div class="post-meta-single">
-                                            <ul>
-                                                <li>
-                                                    <i class="fa fa-clock-o"></i> 08.22.2020
-                                                </li>
-                                                <li>
-                                                    <i class="fa fa-user"></i> 08.22.2020
-                                                </li>
-                                            </ul>
+                            @foreach (var item in Model.news.ToArray().Reverse())
+                            {
+                                if ((Model.news2.Category.Name == item.Category.Name) && relatedPostCount < 4)
+                                {
+                                    relatedPostCount++;
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post-wrap">
+                                            <div class="thumb" style="width:100%">
+                                                <img src="~/Uploads/Images/@item.MainImage" style="width: 100% !important;" alt="">
+                                                <a class="tag-base tag-red" href="#">@item.Category.Name</a>
+                                            </div>
+                                            <div class="details">
+                                                <div class="post-meta-single">
+                                                    <ul>
+                                                        <li>
+                                                            <i class="fa fa-clock-o"></i> @item.CreatedDate.ToString("dd.MM.yyyy")
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa-user"></i> @item.CreatedDate.ToString("dd.MM.yyyy")
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <h6 class="title mt-2">
+                                                    <a href="">@item.Title</a>
+                                                </h6>
+                                            </div>
                                         </div>
-                                        <h6 class="title mt-2">
-                                            <a href="">@Model?.news2.Title</a>
-                                        </h6>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="single-post-wrap">
-                                    <div class="thumb" style="width:100%">
-                                        <img src="~/Uploads/Images/@Model?.news2.Image2" style=" width: 100% !important;" alt="">
-                                        <a class="tag-base tag-red" href="#">Tech</a>
-                                    </div>
-                                    <div class="details">
-                                        <div class="post-meta-single">
-                                            <ul>
-                                                <li>
-                                                    <i class="fa fa-clock-o"></i> 08.22.2020
-                                                </li>
-                                                <li>
-                                                    <i class="fa fa-user"></i> 08.22.2020
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <h6 class="title mt-2">
-                                            <a href="">@Model?.news2.Title</a>
-                                        </h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="single-post-wrap">
-                                    <div class="thumb">
-                                        <img src="~/Uploads/Images/@Model?.news2.MainImage"  alt="">
-                                        <a class="tag-base tag-red" href="#">Tech</a>
-                                    </div>
-                                    <div class="details">
-                                        <div class="post-meta-single">
-                                            <ul>
-                                                <li>
-                                                    <i class="fa fa-clock-o"></i> 08.22.2020
-                                                </li>
-                                                <li>
-                                                    <i class="fa fa-user"></i> 08.22.2020
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <h6 class="title mt-2">
-                                            <a href="">@Model?.news2.Title</a>
-                                        </h6>
-                                    </div>
-                                </div>
-                            </div>
+                                }
+
+
+                            }
                         </div>
                     </div>
                     <div class="blog-comment">
@@ -223,7 +184,7 @@
                         <div class="media">
                             <div class="col-lg-12">
                                 <div id="fb-root"></div>
-                                <div class="fb-comments" data-href="https://localhost:44319/Category/Details?newsid=3" data-width="" data-numposts="10"></div>
+                                <div class="fb-comments" data-href="@Model.news2.Id" data-width="100%" data-numposts="10"></div>
                             </div>
                         </div>
 
@@ -235,54 +196,16 @@
                     <h6 class="title">Category</h6>
                 </div>
                 <div class="row custom-gutters-14">
-                    <div class="col-sm-6">
-                        <div class="single-category-inner">
-                            <img src="~/Assets/image/9.png" alt="img">
-                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
+                    @foreach (var item in Model.categories)
+                    {
+                        <div class="col-sm-6">
+                            <div class="single-category-inner">
+                                <img src="~/Uploads/Images/@item.MainImage" alt="img">
+                                <a class="tag-base tag-blue" asp-controller="Category" asp-action="Category" asp-route-categoryId="@item.Id">@item.Name</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="single-category-inner">
-                            <img src="~/Assets/image/10.png" alt="img">
-                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="single-category-inner">
-                            <img src="~/Assets/image/11.png" alt="img">
-                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="single-category-inner">
-                            <img src="~/Assets/image/12.png" alt="img">
-                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="single-category-inner">
-                            <img src="~/Assets/image/13.png" alt="img">
-                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="single-category-inner">
-                            <img src="~/Assets/image/14.png" alt="img">
-                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="single-category-inner">
-                            <img src="~/Assets/image/15.png" alt="img">
-                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="single-category-inner">
-                            <img src="~/Assets/image/16.png" alt="img">
-                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                        </div>
-                    </div>
+                    }
+
                     <div class="col-12">
                         <div class="add">
                             <img class="w-100" src="~/Assets/image/reklam2.png" alt="img">
@@ -292,11 +215,14 @@
                 <div class="widget widget-social">
                     <h6 class="widget-title">Join to Us</h6>
                     <ul class="social-area social-area-2">
-                        <li><a class="facebook-icon" href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a class="twitter-icon" href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a class="youtube-icon" href="#"><i class="fa fa-youtube-play"></i></a></li>
-                        <li><a class="instagram-icon" href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a class="google-icon" href="#"><i class="fa fa-google-plus"></i></a></li>
+                        @foreach (var item in Model.socials)
+                        {
+                            <li>
+                                <a href="@item.Link" name="@item.Name" class="@item.Color" style="color:@item.Color"><i style="background:@item.Background;color:@item.Color" class="@item.Icon"></i></a>
+                            </li>
+                        }
+                        
+
                     </ul>
                 </div>
                 <div class="section-title">
@@ -305,109 +231,52 @@
                 <div class="section-slider">
                     <div class="item">
                         <div class="trending-post">
-                            <div class="single-post-wrap style-overlay">
-                                <div class="thumb">
-                                    <img src="~/Assets/image/slider1.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                            @foreach (var item in Model.news.OrderByDescending(e=>e.ViewCount).Take(3))
+                            {
+                                <div class="single-post-wrap style-overlay">
+                                    <div class="thumb">
+                                        <img src="~/Uploads/Images/@item.MainImage" alt="img">
                                     </div>
-                                    <h6 class="title"><a href="blog-details.html">The FAA will test drone </a></h6>
-                                </div>
-                            </div>
-                            <div class="single-post-wrap style-overlay">
-                                <div class="thumb">
-                                    <img src="~/Assets/image/slider2.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    <div class="details">
+                                        <div class="post-meta-single">
+                                            <p><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</p>
+                                        </div>
+                                        <h6 class="title"><a asp-controller="Category" asp-action="Details">@item.Title </a></h6>
                                     </div>
-                                    <h6 class="title"><a href="blog-details.html">Flight schedule and quarantine</a></h6>
                                 </div>
-                            </div>
-                            <div class="single-post-wrap style-overlay">
-                                <div class="thumb">
-                                    <img src="~/Assets/image/slider3.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
-                                    </div>
-                                    <h6 class="title"><a href="blog-details.html">Indore bags cleanest city</a></h6>
-                                </div>
-                            </div>
+                            }
                         </div>
                         <div class="trending-post">
-                            <div class="single-post-wrap style-overlay">
-                                <div class="thumb">
-                                    <img src="~/Assets/image/slider1.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                            @foreach (var item in Model.news.OrderByDescending(e => e.ViewCount).Skip(3).Take(3))
+                            {
+                                <div class="single-post-wrap style-overlay">
+                                    <div class="thumb">
+                                        <img src="~/Uploads/Images/@item.MainImage" alt="img">
                                     </div>
-                                    <h6 class="title"><a href="blog-details.html">The FAA will test drone </a></h6>
-                                </div>
-                            </div>
-                            <div class="single-post-wrap style-overlay">
-                                <div class="thumb">
-                                    <img src="~/Assets/image/slider2.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    <div class="details">
+                                        <div class="post-meta-single">
+                                            <p><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</p>
+                                        </div>
+                                        <h6 class="title"><a asp-controller="Category" asp-action="Details">@item.Title </a></h6>
                                     </div>
-                                    <h6 class="title"><a href="blog-details.html">Flight schedule and quarantine</a></h6>
                                 </div>
-                            </div>
-                            <div class="single-post-wrap style-overlay">
-                                <div class="thumb">
-                                    <img src="~/Assets/image/slider3.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
-                                    </div>
-                                    <h6 class="title"><a href="blog-details.html">Indore bags cleanest city</a></h6>
-                                </div>
-                            </div>
+                            }
                         </div>
                         <div class="trending-post">
-                            <div class="single-post-wrap style-overlay">
-                                <div class="thumb">
-                                    <img src="~/Assets/image/slider1.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                            @foreach (var item in Model.news.OrderByDescending(e => e.ViewCount).Skip(6).Take(3))
+                            {
+                                <div class="single-post-wrap style-overlay">
+                                    <div class="thumb">
+                                        <img src="~/Uploads/Images/@item.MainImage" alt="img">
                                     </div>
-                                    <h6 class="title"><a href="blog-details.html">The FAA will test drone </a></h6>
-                                </div>
-                            </div>
-                            <div class="single-post-wrap style-overlay">
-                                <div class="thumb">
-                                    <img src="~/Assets/image/slider2.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    <div class="details">
+                                        <div class="post-meta-single">
+                                            <p><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</p>
+                                        </div>
+                                        <h6 class="title"><a asp-controller="Category" asp-action="Details">@item.Title </a></h6>
                                     </div>
-                                    <h6 class="title"><a href="blog-details.html">Flight schedule and quarantine</a></h6>
                                 </div>
-                            </div>
-                            <div class="single-post-wrap style-overlay">
-                                <div class="thumb">
-                                    <img src="~/Assets/image/slider3.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
-                                    </div>
-                                    <h6 class="title"><a href="blog-details.html">Indore bags cleanest city</a></h6>
-                                </div>
-                            </div>
+                            }
                         </div>
                     </div>
 
@@ -433,23 +302,27 @@
                     </ul>
                 </div>
                 <div class="portfolio-item">
-                    <div class="Latest-post-list-wrap Recent Populer" style="margin-bottom: 25px;">
-                        <div class="Gallery">
-                            <div class="gallery-left">
-                                <img src="~/Assets/image/1.png" alt="img">
-                            </div>
-                            <div class="gallery-body">
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                        </ul>
+                    @foreach (var item in Model.news.Take(5))
+                    {
+                        <div class="Latest-post-list-wrap Recent Populer " style="margin-bottom: 25px;">
+                            <div class="Gallery">
+                                <div class="gallery-left">
+                                    <img src="~/Assets/image/1.png" alt="img">
+                                </div>
+                                <div class="gallery-body">
+                                    <div class="details">
+                                        <div class="post-meta-single">
+                                            <ul>
+                                                <li><i class="fa fa-clock-o"></i>08.22.2020</li>
+                                            </ul>
+                                        </div>
+                                        <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
                                     </div>
-                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    }
+
                     <div class="Latest-post-list-wrap Populer Recent" style="margin-bottom: 25px;">
                         <div class="Gallery">
                             <div class="gallery-left">

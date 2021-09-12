@@ -14,17 +14,27 @@ namespace Final.Controllers
     public class HomeController : Controller
     {
         private readonly ISubscribeService _subscribe;
+        private readonly INewsService _newsService;
+        private readonly ICategoryService _categoryService;
 
-        public HomeController(ISubscribeService subscribe)
+        public HomeController(ISubscribeService subscribe,INewsService newsService,ICategoryService categoryService)
         {
             _subscribe = subscribe;
+            _newsService = newsService;
+            _categoryService = categoryService;
         }
 
         public IActionResult Index()
-        { 
-            
-            return View();
+        {
+            VmNews news = new VmNews()
+            {
+                news=_newsService.GetNews(),
+                categories = _categoryService.GetCategories(),
+                subscribe =_subscribe.GetSubscribe()
+            };
+            return View(news);
         }
+
 
         [HttpPost]
         public IActionResult Subscribe(VmNews model)

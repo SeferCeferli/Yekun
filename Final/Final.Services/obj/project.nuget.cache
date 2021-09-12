@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BXzrMhZN7JYozMS8dfLNBQh1CzCUKwwWyJjtyP+ZkjuJNNYgTEC+ojfIp1FVAlb6PrSAcWCma7E2u9H8g2LKLA==",
+  "dgSpecHash": "SGeMN1JHO1KRCuqKC3HD62oTBl+t4Pad8NCGl36+TOz/pX0HL36pDyof/FpWbgejclkyHIgfxbixjUoUUDUNjA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Final\\Final.Services\\Final.Services.csproj",
+  "projectFilePath": "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Yekun\\Final\\Final.Services\\Final.Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kerim\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\kerim\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.9\\microsoft.aspnetcore.cryptography.internal.5.0.9.nupkg.sha512",

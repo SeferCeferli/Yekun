@@ -34,12 +34,17 @@ namespace Final.Services.Repository
 
         public List<News> GetNews()
         {
-            return _context.News.Include(c=>c.Category).ToList();
+            return _context.News.Include(c=>c.Category).Include(n => n.newsToTags).ThenInclude(t => t.Tags).ToList();
         }
 
         public News GetNews(int? id)
         {
-            return _context.News.FirstOrDefault(n=>n.Id == id);
+            return _context.News.Include(n => n.newsToTags).ThenInclude(t => t.Tags).FirstOrDefault(n=>n.Id == id);
+        }
+
+        public List<News> GetNewsbyCategory(int? id)
+        {
+            return _context.Categories.Include(b=>b.News).FirstOrDefault(n=>n.Id==id).News.ToList();
         }
 
         public News UpdateNews(News model)

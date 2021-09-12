@@ -42,6 +42,7 @@ namespace Final
             services.AddScoped<ITagsService, TagsService>();
             services.AddScoped<IAboutService, AboutService>();
             services.AddScoped<IAdvertismentService, AdvertismentService>();
+            services.AddScoped<INewstoTagService, NewstoTagService>();
             services.ConfigureApplicationCookie(options =>
             {
                 options.LoginPath = "/Admin/Account/Login";
@@ -74,7 +75,7 @@ namespace Final
                 endpoints.MapAreaControllerRoute(
                 name: "Areas",
                 areaName: "Admin",
-                pattern: "Admin/{controller=Account}/{action=Index}/{id?}");
+                pattern: "Admin/{controller=Account}/{action=Login}/{id?}");
 
 
                 endpoints.MapControllerRoute(

@@ -1,5 +1,6 @@
 ﻿using Final.Models;
 using Final.Services.Repository.IRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Final.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("Admin"), Authorize]
     public class AdmTagsController : Controller
     {
         private readonly ITagsService _tagsService;
@@ -29,6 +30,7 @@ namespace Final.Areas.Admin.Controllers
             ViewBag.CurrentPage = page;
             ViewBag.DataPage = dataPage;
             ViewBag.DataCount = tags1.Count;
+            ViewBag.Active = "Tags";
             return View(tags);
         }
         public IActionResult Create()
@@ -44,7 +46,6 @@ namespace Final.Areas.Admin.Controllers
                 _tagsService.CreateTags(model);
                 return RedirectToAction("Index", "AdmTags");
             }
-            ViewBag.News = _newsService.GetNews();
             return View(model);
         }
         public IActionResult Update(int? TagsId)
@@ -53,7 +54,6 @@ namespace Final.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewBag.News = _newsService.GetNews();
             return View(_tagsService.GetTag(TagsId));
         }
         [HttpPost]
@@ -64,7 +64,6 @@ namespace Final.Areas.Admin.Controllers
                 _tagsService.UpdateTags(model);
                 return RedirectToAction("Index", "AdmTags");
             }
-            ViewBag.News = _newsService.GetNews();
             return View();
         }
         public IActionResult Delete(int TagsId)

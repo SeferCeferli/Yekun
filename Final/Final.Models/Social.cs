@@ -18,5 +18,7 @@ namespace Final.Models
         public string Icon { get; set; }
         [MaxLength(50)]
         public string Color { get; set; }
+        [MaxLength(50)]
+        public string Background { get; set; }
     }
 }

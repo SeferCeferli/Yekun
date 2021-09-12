@@ -14,14 +14,14 @@
                         <div class="widget_about">
                             <p>@Model.Settings.Info</p>
                             <ul class="social-area">
-                                @foreach (var item in Model.Socials)
+                                @foreach (var item in Model.socials)
                                 {
                                     <li>
-                                        <a href="@item.Link" class="@item.Color" title="@item.Name"><i class="@item.Icon"></i></a>
+                                        <a href="@item.Link" name="@item.Name" class="@item.Color" style="color:@item.Color;width:40px;height:40px;display:inline-block;"><i style="background:@item.Background;color:@item.Color;width:40px;height:40px;border-radius:50%;line-height:40px;text-align:center" class="@item.Icon"></i></a>
                                     </li>
                                 }
 
-                               
+
                             </ul>
                         </div>
                     </div>
@@ -30,18 +30,12 @@
                     <div class="widget widget_tag_cloud">
                         <h5 class="widget-title">TAGS</h5>
                         <div class="tagcloud">
+                            @foreach (var item in Model.Tags.Take(8))
+                            {
 
-                            <a href="#">Consectetur</a>
-                            <a href="#">Video</a>
-                            <a href="#">App</a>
-                            <a href="#">Food</a>
-                            <a href="#">Game</a>
-                            <a href="#">Internet</a>
-                            <a href="#">Phones</a>
-                            <a href="#">Development</a>
-                            <a href="#">Video</a>
-                            <a href="#">Game</a>
-                            <a href="#">Gadgets</a>
+                                <a>@item.Name</a>
+
+                            }
                         </div>
                     </div>
                 </div>
@@ -58,40 +52,27 @@
                 <div class="col-lg-3">
                     <div class="widget widget_recent_post">
                         <h5 class="widget-title">POPULAR NEWS</h5>
-                        <div class="Latest-post-list-wrap" style="margin-bottom: 25px;">
-                            <div class="Gallery">
-                                <div class="gallery-left">
-                                    <img src="~/Assets/image/1.png" alt="img">
-                                </div>
-                                <div class="gallery-body">
-                                    <div class="details">
-                                        <div class="post-meta-single">
-                                            <ul>
-                                                <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                            </ul>
+                        @foreach (var item in Model.news.Take(2))
+                        {
+                            <div class="Latest-post-list-wrap" style="margin-bottom: 25px;">
+                                <div class="Gallery">
+                                    <div class="gallery-left">
+                                        <img src="~/Uploads/Images/@item.MainImage" alt="img">
+                                    </div>
+                                    <div class="gallery-body">
+                                        <div class="details">
+                                            <div class="post-meta-single">
+                                                <ul>
+                                                    <li><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</li>
+                                                </ul>
+                                            </div>
+                                            <h6 class="title"><a href="blog-details.html">@item.Title </a></h6>
                                         </div>
-                                        <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="Latest-post-list-wrap" style="margin-bottom: 25px;">
-                            <div class="Gallery">
-                                <div class="gallery-left">
-                                    <img src="~/Assets/image/2.png" alt="img">
-                                </div>
-                                <div class="gallery-body">
-                                    <div class="details">
-                                        <div class="post-meta-single">
-                                            <ul>
-                                                <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                            </ul>
-                                        </div>
-                                        <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        }
+
                     </div>
                 </div>
                 <div class="footer-bottom text-center">

@@ -9,6 +9,7 @@ namespace Final.Services.Repository.IRepository
     {
         List<News> GetNews();
         News GetNews(int? id);
+        List<News> GetNewsbyCategory(int? id);
         News CreateNews(News model);
         News UpdateNews(News model);
         bool DeleteNews(int id);

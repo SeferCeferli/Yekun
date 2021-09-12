@@ -14,7 +14,7 @@ namespace Final.Models
         public string Name { get; set; }
         [MaxLength(50), Required]
         public string Email { get; set; }
-        [Column(TypeName ="ntext")]
+        [Column(TypeName ="ntext"),Required]
         public string Text { get; set; }
         public DateTime CreatedDate { get; set; }
     }

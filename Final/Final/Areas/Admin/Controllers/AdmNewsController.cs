@@ -1,5 +1,7 @@
 ﻿using Final.Models;
+using Final.Services;
 using Final.Services.Repository.IRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,17 +12,23 @@ using System.Threading.Tasks;
 
 namespace Final.Areas.Admin.Controllers
 {
-    [Area ("Admin")]
+    [Area ("Admin"), Authorize]
     public class AdmNewsController : Controller
     {
         private readonly INewsService _news;
         private readonly ICategoryService _category;
+        private readonly ITagsService _tagsService;
+        private readonly INewstoTagService _newstoTagService;
+        private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public AdmNewsController(INewsService news,ICategoryService category, IWebHostEnvironment webHostEnvironment)
+        public AdmNewsController(INewsService news,ICategoryService category,ITagsService tagsService,INewstoTagService newstoTagService,AppDbContext context ,IWebHostEnvironment webHostEnvironment)
         {
             _news = news;
             _category = category;
+            _tagsService = tagsService;
+            _newstoTagService = newstoTagService;
+            _context = context;
             _webHostEnvironment = webHostEnvironment;
         }
         public IActionResult Index(int page=1)
@@ -33,7 +41,7 @@ namespace Final.Areas.Admin.Controllers
             ViewBag.CurrentPage = page;
             ViewBag.DataPage = dataPage;
             ViewBag.DataCount = news1.Count;
-
+            ViewBag.Active = "News";
 
             return View(news);
         }
@@ -41,6 +49,7 @@ namespace Final.Areas.Admin.Controllers
         public IActionResult Create()
         {
             ViewBag.Category = _category.GetCategories();
+            ViewBag.Tags = _tagsService.GetTags();
             return View();
         }
         [HttpPost]
@@ -48,6 +57,7 @@ namespace Final.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                List<NewsToTag> toTags = model.newsToTags;
                 if (!(model.ImageFile.ContentType =="image/png" || model.ImageFile.ContentType == "image/jpeg" || model.ImageFile.ContentType == "image/gif"))
                 {
                     ModelState.AddModelError("", "You can only upload jpeg,png,gif");
@@ -127,7 +137,25 @@ namespace Final.Areas.Admin.Controllers
                 }
                 model.VideoImage = fileName3;
                 model.CreatedDate = DateTime.Now;
+                model.newsToTags = null;
                 _news.CreateNews(model);
+
+                foreach (var item in toTags)
+                {
+                    if (item.TagsId > 0)
+                    {
+                        NewsToTag newsToTag = new NewsToTag()
+                        {
+                            NewsId = model.Id,
+                            TagsId = item.TagsId
+                        };
+                        _context.newsToTags.Add(newsToTag);
+                    }
+
+                }
+
+                _context.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             ViewBag.Category = _category.GetCategories();
@@ -139,8 +167,9 @@ namespace Final.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            
+
             ViewBag.Category = _category.GetCategories();
+            ViewBag.Tags = _tagsService.GetTags();
             return View(_news.GetNews(NewsID));
         }
         [HttpPost]
@@ -150,6 +179,7 @@ namespace Final.Areas.Admin.Controllers
             {
                 if (model.ImageFile!=null)
                 {
+                    List<NewsToTag> toTags = model.newsToTags;
                     if (!(model.ImageFile.ContentType == "image/png" || model.ImageFile.ContentType == "image/jpeg" || model.ImageFile.ContentType == "image/gif"))
                     {
                         ModelState.AddModelError("", "You can only upload jpeg,png,gif");
@@ -162,6 +192,9 @@ namespace Final.Areas.Admin.Controllers
                         ViewBag.Category = _category.GetCategories();
                         return View(model);
                     }
+                    string oldfilepath = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads/Images", model.MainImage,model.Title);
+                    System.IO.File.Delete(oldfilepath);
+
                     string fileName = Guid.NewGuid() + "-" + DateTime.Now.ToString("ddmmyyyyhhmmss") + "-" + model.ImageFile.FileName;
                     string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads/Images", fileName);
                     using (var stream = new FileStream(filePath, FileMode.Create))
@@ -182,6 +215,9 @@ namespace Final.Areas.Admin.Controllers
                         ViewBag.Category = _category.GetCategories();
                         return View(model);
                     }
+                    string oldfilepath1 = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads/Images", model.Image1);
+                    System.IO.File.Delete(oldfilepath1);
+
                     string fileName1 = Guid.NewGuid() + "-" + DateTime.Now.ToString("ddmmyyyyhhmmss") + "-" + model.Image1File.FileName;
                     string filePath1 = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads/Images", fileName1);
                     using (var stream = new FileStream(filePath1, FileMode.Create))
@@ -202,6 +238,9 @@ namespace Final.Areas.Admin.Controllers
                         ViewBag.Category = _category.GetCategories();
                         return View(model);
                     }
+                    string oldfilepath2 = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads/Images", model.Image2);
+                    System.IO.File.Delete(oldfilepath2);
+
                     string fileName2 = Guid.NewGuid() + "-" + DateTime.Now.ToString("ddmmyyyyhhmmss") + "-" + model.Image2File.FileName;
                     string filePath2 = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads/Images", fileName2);
                     using (var stream = new FileStream(filePath2, FileMode.Create))
@@ -221,6 +260,9 @@ namespace Final.Areas.Admin.Controllers
                         ViewBag.Category = _category.GetCategories();
                         return View(model);
                     }
+                    string oldfilepath3 = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads/Images", model.VideoImage);
+                    System.IO.File.Delete(oldfilepath3);
+
                     string fileName3 = Guid.NewGuid() + "-" + DateTime.Now.ToString("ddmmyyyyhhmmss") + "-" + model.VideoImageFile.FileName;
                     string filePath3 = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads/Images", fileName3);
                     using (var stream = new FileStream(filePath3, FileMode.Create))
@@ -228,11 +270,30 @@ namespace Final.Areas.Admin.Controllers
                         model.VideoImageFile.CopyTo(stream);
                     }
                     model.VideoImage = fileName3;
+                    model.newsToTags = null;
                     _news.UpdateNews(model);
-                    return RedirectToAction("Index");
+
+                    foreach (var item in toTags)
+                    {
+                        if (item.TagsId > 0)
+                        {
+                            NewsToTag newsToTag = new NewsToTag()
+                            {
+                                NewsId = model.Id,
+                                TagsId = item.TagsId
+                            };
+                            _context.newsToTags.Add(newsToTag);
+                        }
+
+                       
+                    }
+                    
                 }
-                
+                _context.SaveChanges();
+                _news.UpdateNews(model);
+                return RedirectToAction("Index");
             }
+            ViewBag.Tags = _tagsService.GetTags();
             ViewBag.Category = _category.GetCategories();
             return View();
         }
@@ -241,6 +302,11 @@ namespace Final.Areas.Admin.Controllers
             _news.GetNews(NewsId);
             _news.DeleteNews(NewsId);
             return RedirectToAction("Index", "AdmNews");
+        }
+        public JsonResult GetTags()
+        {
+            List<Tags> tags = _tagsService.GetTags();
+            return Json(tags);
         }
     }
 }

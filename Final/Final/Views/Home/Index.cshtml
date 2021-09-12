@@ -1,4 +1,7 @@
-﻿@{
+﻿
+@model VmNews
+@{
+
     ViewData["Title"] = "Home Page";
 }
 
@@ -8,170 +11,68 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="single-post-wrap style-overlay">
-                        <div class="thumb">
-                            <img src="~/Assets/image/Main-news.png" alt="">
-                            <a class="tag-base tag-blue" href="#">Tech</a>
-                        </div>
-                        <div class="details">
-                            <div class="post-meta-single">
-                                <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                    @foreach (var item in Model.news.OrderByDescending(v=>v.CreatedDate).Take(1))
+                    {
+                        <div class="single-post-wrap style-overlay">
+                            <div class="thumb">
+                                <img src="~/Uploads/Images/@item.MainImage" style="width:100%" alt="">
+                                <a class="tag-base tag-blue" href="#">@item.Category.Name</a>
                             </div>
-                            <h5 class="title"><a href="blog-details.html">IPL bubble: BT bands to enforce distancing, others’ rooms out of bounds</a></h5>
+                            <div class="details">
+                                <div class="post-meta-single">
+                                    <p><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</p>
+                                </div>
+                                <h5 class="title"><a asp-controller="Category" asp-action="Details">@item.Title</a></h5>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row midlle">
+                    }
+
+                <div class="row midlle">
+                    @foreach (var item in Model.news.OrderByDescending(a=>a.CreatedDate).Skip(1).Take(2))
+                    {
                         <div class="col-lg-6 col-sm-6">
                             <div class="single-post-wrap style-overlay">
                                 <div class="thumb">
-                                    <img src="~/Assets/image/Main-news.png" alt="img">
+                                    <img src="~/Uploads/Images/@item.MainImage" alt="img">
                                 </div>
                                 <div class="details">
                                     <div class="post-meta-single">
-                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                        <p><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</p>
                                     </div>
-                                    <h6 class="title"><a href="blog-details.html">Lifting Weights Makes Your Nervous</a></h6>
+                                    <h6 class="title"><a asp-controller="Category" asp-action="Details">@item.Title</a></h6>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-sm-6">
-                            <div class="single-post-wrap style-overlay">
-                                <div class="thumb">
-                                    <img src="~/Assets/image/Main-news.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
-                                    </div>
-                                    <h6 class="title"><a href="blog-details.html">New, Remote Weight-Loss Method </a></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                    }
+                </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="Latest-title  mb-4">
                         <h6 class="title">Latest News</h6>
                     </div>
-                    <div class="Latest-post">
-                        <div class="Gallery">
-                            <div class="gallery-left">
-                                <img src="~/Assets/image/1.png" alt="img">
-                            </div>
-                            <div class="gallery-body">
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                        </ul>
+                    @foreach (var item in Model.news.OrderByDescending(o=>o.CreatedDate).Take(7))
+                    {
+                        <div class="Latest-post">
+                            <div class="Gallery">
+                                <div class="gallery-left">
+                                    <img src="~/Uploads/Images/@item.MainImage" alt="img">
+                                </div>
+                                <div class="gallery-body">
+                                    <div class="details">
+                                        <div class="post-meta-single">
+                                            <ul>
+                                                <li><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</li>
+                                            </ul>
+                                        </div>
+                                        <h6 class="title"><a asp-controller="Category" asp-action="Details">@item.Title</a></h6>
                                     </div>
-                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="Latest-post">
-                        <div class="Gallery">
-                            <div class="gallery-left">
-                                <img src="~/Assets/image/2.png" alt="img">
-                            </div>
-                            <div class="gallery-body">
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                        </ul>
-                                    </div>
-                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="Latest-post">
-                        <div class="Gallery">
-                            <div class="gallery-left">
-                                <img src="~/Assets/image/3.png" alt="img">
-                            </div>
-                            <div class="gallery-body">
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                        </ul>
-                                    </div>
-                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="Latest-post">
-                        <div class="Gallery">
-                            <div class="gallery-left">
-                                <img src="~/Assets/image/4.png" alt="img">
-                            </div>
-                            <div class="gallery-body">
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                        </ul>
-                                    </div>
-                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="Latest-post">
-                        <div class="Gallery">
-                            <div class="gallery-left">
-                                <img src="~/Assets/image/5.png" alt="img">
-                            </div>
-                            <div class="gallery-body">
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                        </ul>
-                                    </div>
-                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="Latest-post">
-                        <div class="Gallery">
-                            <div class="gallery-left">
-                                <img src="~/Assets/image/4.png" alt="img">
-                            </div>
-                            <div class="gallery-body">
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                        </ul>
-                                    </div>
-                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="Latest-post">
-                        <div class="Gallery">
-                            <div class="gallery-left">
-                                <img src="~/Assets/image/5.png" alt="img">
-                            </div>
-                            <div class="gallery-body">
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                        </ul>
-                                    </div>
-                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                    }
+
 
                 </div>
                 <div class="col-lg-3 col-sm-6 widget-category">
@@ -179,54 +80,15 @@
                         <h6 class="title">Category</h6>
                     </div>
                     <div class="row custom-gutters-14">
-                        <div class="col-sm-6">
-                            <div class="single-category-inner">
-                                <img src="~/Assets/image/9.png" alt="img">
-                                <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
+                        @foreach (var item in Model.categories)
+                        {
+                            <div class="col-sm-6">
+                                <div class="single-category-inner">
+                                    <img src="~/Uploads/Images/@item.MainImage" alt="img">
+                                    <a class="tag-base tag-blue" asp-controller="Category" asp-action="Category" asp-route-categoryId="@item.Id">@item.Name</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="single-category-inner">
-                                <img src="~/Assets/image/10.png" alt="img">
-                                <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="single-category-inner">
-                                <img src="~/Assets/image/11.png" alt="img">
-                                <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="single-category-inner">
-                                <img src="~/Assets/image/12.png" alt="img">
-                                <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="single-category-inner">
-                                <img src="~/Assets/image/13.png" alt="img">
-                                <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="single-category-inner">
-                                <img src="~/Assets/image/14.png" alt="img">
-                                <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="single-category-inner">
-                                <img src="~/Assets/image/15.png" alt="img">
-                                <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="single-category-inner">
-                                <img src="~/Assets/image/16.png" alt="img">
-                                <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                            </div>
-                        </div>
+                        }
                         <div class="col-12">
                             <div class="add">
                                 <img class="w-100" src="~/Assets/image/reklam2.png" alt="img">
@@ -365,91 +227,27 @@
                     <div class="section-slider">
                         <div class="item latestnews">
                             <div class="slider2">
-                                <div class="Latest-post-list-wrap">
-                                    <div class="Gallery">
-                                        <div class="gallery-left">
-                                            <img src="~/Assets/image/1.png" alt="img">
-                                        </div>
-                                        <div class="gallery-body">
-                                            <div class="details">
-                                                <div class="post-meta-single">
-                                                    <ul>
-                                                        <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                    </ul>
+                                @foreach (var item in Model.news.OrderByDescending(m => m.CreatedDate).Take(5))
+                                {
+                                    <div class="Latest-post-list-wrap">
+                                        <div class="Gallery">
+                                            <div class="gallery-left">
+                                                <img src="~/Uploads/Images/@item.MainImage" alt="img">
+                                            </div>
+                                            <div class="gallery-body">
+                                                <div class="details">
+                                                    <div class="post-meta-single">
+                                                        <ul>
+                                                            <li><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</li>
+                                                        </ul>
+                                                    </div>
+                                                    <h6 class="title"><a asp-controller="Category" asp-action="Details">@item.Title</a></h6>
                                                 </div>
-                                                <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="Latest-post-list-wrap">
-                                    <div class="Gallery">
-                                        <div class="gallery-left">
-                                            <img src="~/Assets/image/2.png" alt="img">
-                                        </div>
-                                        <div class="gallery-body">
-                                            <div class="details">
-                                                <div class="post-meta-single">
-                                                    <ul>
-                                                        <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                    </ul>
-                                                </div>
-                                                <h6 class="title"><a href="blog-details.html">Online registration, booking for Vaishno Devi</a></h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="Latest-post-list-wrap">
-                                    <div class="Gallery">
-                                        <div class="gallery-left">
-                                            <img src="~/Assets/image/3.png" alt="img">
-                                        </div>
-                                        <div class="gallery-body">
-                                            <div class="details">
-                                                <div class="post-meta-single">
-                                                    <ul>
-                                                        <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                    </ul>
-                                                </div>
-                                                <h6 class="title"><a href="blog-details.html">Detecting technologies in airports this year</a></h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="Latest-post-list-wrap">
-                                    <div class="Gallery">
-                                        <div class="gallery-left">
-                                            <img src="~/Assets/image/4.png" alt="img">
-                                        </div>
-                                        <div class="gallery-body">
-                                            <div class="details">
-                                                <div class="post-meta-single">
-                                                    <ul>
-                                                        <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                    </ul>
-                                                </div>
-                                                <h6 class="title"><a href="blog-details.html">The FAA will drone detect-ing in airports this year</a></h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="Latest-post-list-wrap">
-                                    <div class="Gallery">
-                                        <div class="gallery-left">
-                                            <img src="~/Assets/image/5.png" alt="img">
-                                        </div>
-                                        <div class="gallery-body">
-                                            <div class="details">
-                                                <div class="post-meta-single">
-                                                    <ul>
-                                                        <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                    </ul>
-                                                </div>
-                                                <h6 class="title"><a href="blog-details.html">Thailand makes it mand-atory for tourists to stay</a></h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
+                                }
                             </div>
                             <div class="slider2">
                                 <div class="Latest-post-list-wrap">
@@ -704,11 +502,11 @@
                     </div>
                     <div class="social-area-list mb-4">
                         <ul>
-                            <li><a class="facebook" href="#"><i class="fa fa-facebook social-icon"></i><span>12,300</span><span>Like</span> <i class="fa fa-plus"></i></a></li>
-                            <li><a class="twitter" href="#"><i class="fa fa-twitter social-icon"></i><span>12,600</span><span>Followers</span> <i class="fa fa-plus"></i></a></li>
-                            <li><a class="youtube" href="#"><i class="fa fa-youtube-play social-icon"></i><span>1,300</span><span>Subscribers</span> <i class="fa fa-plus"></i></a></li>
-                            <li><a class="instagram" href="#"><i class="fa fa-instagram social-icon"></i><span>52,400</span><span>Followers</span> <i class="fa fa-plus"></i></a></li>
-                            <li><a class="google-plus" href="#"><i class="fa fa-google social-icon"></i><span>19,101</span><span>Subscribers</span> <i class="fa fa-plus"></i></a></li>
+                            <li><a class="facebook"><i class="fa fa-facebook social-icon"></i><span id="facebook-plus">12300</span><span>Like</span> <i class="fa fa-plus" onclick="likebtn()" id="fb-like"></i></a></li>
+                            <li><a class="twitter"><i class="fa fa-twitter social-icon"></i><span id="twitter-plus">12600</span><span>Followers</span> <i class="fa fa-plus" onclick="likebtn1()" id="tw-like"></i></a></li>
+                            <li><a class="youtube"><i class="fa fa-youtube-play social-icon"></i><span id="youtube-plus">1300</span><span>Subscribers</span> <i class="fa fa-plus" onclick="likebtn2()" id="yu-like"></i></a></li>
+                            <li><a class="instagram"><i class="fa fa-instagram social-icon"></i><span id="instagram-plus">52400</span><span>Followers</span> <i class="fa fa-plus" onclick="likebtn3()" id="in-like"></i></a></li>
+                            <li><a class="google-plus"><i class="fa fa-google social-icon"></i><span id="google-plus">19101</span><span>Subscribers</span> <i class="fa fa-plus" onclick="likebtn4()" id="go-like"></i></a></li>
                         </ul>
                     </div>
                     <div class="add-area">

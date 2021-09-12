@@ -70,6 +70,10 @@ namespace Final.Services.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("MainImage")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -174,6 +178,28 @@ namespace Final.Services.Migrations
                     b.ToTable("News");
                 });
 
+            modelBuilder.Entity("Final.Models.NewsToTag", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("NewsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NewsId");
+
+                    b.HasIndex("TagsId");
+
+                    b.ToTable("newsToTags");
+                });
+
             modelBuilder.Entity("Final.Models.Settings", b =>
                 {
                     b.Property<int>("Id")
@@ -221,6 +247,10 @@ namespace Final.Services.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Background")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Color")
                         .HasMaxLength(50)
@@ -282,12 +312,7 @@ namespace Final.Services.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("NewsId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("NewsId");
 
                     b.ToTable("Tags");
                 });
@@ -527,15 +552,23 @@ namespace Final.Services.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("Final.Models.Tags", b =>
+            modelBuilder.Entity("Final.Models.NewsToTag", b =>
                 {
                     b.HasOne("Final.Models.News", "News")
-                        .WithMany("Tags")
+                        .WithMany("newsToTags")
                         .HasForeignKey("NewsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Final.Models.Tags", "Tags")
+                        .WithMany("newsToTags")
+                        .HasForeignKey("TagsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("News");
+
+                    b.Navigation("Tags");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -596,7 +629,12 @@ namespace Final.Services.Migrations
 
             modelBuilder.Entity("Final.Models.News", b =>
                 {
-                    b.Navigation("Tags");
+                    b.Navigation("newsToTags");
+                });
+
+            modelBuilder.Entity("Final.Models.Tags", b =>
+                {
+                    b.Navigation("newsToTags");
                 });
 #pragma warning restore 612, 618
         }

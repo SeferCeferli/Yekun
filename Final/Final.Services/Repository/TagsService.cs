@@ -39,7 +39,7 @@ namespace Final.Services.Repository
 
         public List<Tags> GetTags()
         {
-            return _context.Tags.Include(n=>n.News).ToList();
+            return _context.Tags.ToList();
         }
 
         public Tags UpdateTags(Tags model)

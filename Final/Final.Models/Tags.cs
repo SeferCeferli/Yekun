@@ -12,8 +12,7 @@ namespace Final.Models
         public int Id { get; set; }
         [MaxLength(50),Required]
         public string Name { get; set; }
-        [ForeignKey("News")]
-        public int NewsId { get; set; }
-        public News News { get; set; }
+        public List<NewsToTag> newsToTags { get; set; }
+
     }
 }

@@ -8883,11 +8883,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Final\\Final\\Final.csproj",
+      "projectUniqueName": "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Yekun\\Final\\Final\\Final.csproj",
       "projectName": "Final",
-      "projectPath": "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Final\\Final\\Final.csproj",
+      "projectPath": "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Yekun\\Final\\Final\\Final.csproj",
       "packagesPath": "C:\\Users\\kerim\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Final\\Final\\obj\\",
+      "outputPath": "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Yekun\\Final\\Final\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -8908,11 +8908,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Final\\Final.Models\\Final.Models.csproj": {
-              "projectPath": "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Final\\Final.Models\\Final.Models.csproj"
+            "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Yekun\\Final\\Final.Models\\Final.Models.csproj": {
+              "projectPath": "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Yekun\\Final\\Final.Models\\Final.Models.csproj"
             },
-            "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Final\\Final.Services\\Final.Services.csproj": {
-              "projectPath": "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Final\\Final.Services\\Final.Services.csproj"
+            "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Yekun\\Final\\Final.Services\\Final.Services.csproj": {
+              "projectPath": "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Yekun\\Final\\Final.Services\\Final.Services.csproj"
             }
           }
         }

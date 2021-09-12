@@ -44,6 +44,6 @@ namespace Final.Models
         public int CategoryId { get; set; }
         public Category Category { get; set; }
         public int ViewCount { get; set; }
-        public List<Tags> Tags { get; set; }
+        public List<NewsToTag> newsToTags { get; set; }
     }
 }
