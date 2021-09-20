@@ -60,12 +60,15 @@
                 </div>
                 <nav class="mt-4 text-center">
                     <ul class="pagination">
-                        <li class="page-item prev"><a class="page-link" asp-controller="Category" asp-action="Category" asp-route-page="@(ViewBag.CurrentPage<=1?1:ViewBag.CurrentPage-1)"><i class="fa fa-angle-left"></i></a></li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item next"><a class="page-link" asp-controller="Category" asp-action="Category" asp-route-page="@(ViewBag.CurrentPage>=ViewBag.PageCount?ViewBag.CurrentPage:ViewBag.CurrentPage+1)"><i class="fa fa-angle-right"></i></a></li>
+                        <li class="page-item prev"><a class="page-link" asp-controller="Category" asp-action="Category" asp-route-page="@(ViewBag.Active<=1?1:ViewBag.Active-1)" asp-route-categoryId="@Model.news.FirstOrDefault().CategoryId"><i class="fa fa-angle-left"></i></a></li>
+
+                        @for (int i = 1; i <= ViewBag.PageCount; i++)
+                        {
+                            <li class="page-item @(ViewBag.Active==i?"active":"")"><a class="page-link" asp-controller="Category" asp-action="Category" asp-route-categoryId="@Model.news.FirstOrDefault().CategoryId" asp-route-page="@i" >@i</a></li>
+
+                        }
+
+                        <li class="page-item next"><a class="page-link" asp-controller="Category" asp-action="Category" asp-route-page="@(ViewBag.Active>=ViewBag.PageCount?ViewBag.Active:ViewBag.Active+1)" asp-route-categoryId="@Model.news.FirstOrDefault().CategoryId"><i class="fa fa-angle-right"></i></a></li>
                     </ul>
                 </nav>
             </div>

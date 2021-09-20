@@ -395,3 +395,4 @@ C:\Users\kerim\Dropbox\My PC (LAPTOP-I6SA5SMH)\Desktop\Final Asp\Yekun\Final\Fin
 C:\Users\kerim\Dropbox\My PC (LAPTOP-I6SA5SMH)\Desktop\Final Asp\Yekun\Final\Final\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\VcNavbar\Default.cshtml.g.cs
 C:\Users\kerim\Dropbox\My PC (LAPTOP-I6SA5SMH)\Desktop\Final Asp\Yekun\Final\Final\obj\Debug\netcoreapp3.1\Razor\Views\Category\Index.cshtml.g.cs
 C:\Users\kerim\Dropbox\My PC (LAPTOP-I6SA5SMH)\Desktop\Final Asp\Yekun\Final\Final\obj\Debug\netcoreapp3.1\Razor\Views\Category\Category.cshtml.g.cs
+C:\Users\kerim\Dropbox\My PC (LAPTOP-I6SA5SMH)\Desktop\Final Asp\Yekun\Final\Final\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ShortNewsPartial.cshtml.g.cs

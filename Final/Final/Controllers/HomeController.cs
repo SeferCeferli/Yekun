@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,9 +27,12 @@ namespace Final.Controllers
 
         public IActionResult Index()
         {
+
+
             VmNews news = new VmNews()
             {
-                news=_newsService.GetNews(),
+                
+                news =_newsService.GetNews(),
                 categories = _categoryService.GetCategories(),
                 subscribe =_subscribe.GetSubscribe()
             };

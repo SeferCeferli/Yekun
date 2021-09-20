@@ -2,19 +2,19 @@ $(document).ready(function() {
     $('.item').slick({
         arrows: true
     });
-    $('.portfolio-item').isotope({
-        itemSelector: '.Latest-post-list-wrap',
-        layoutMode: 'fitRows'
-    })
-    $('.nav-tabs .nav-item').click(function() {
-        $('.nxp-tab-inner ul li').removeClass('active')
-        $(this).addClass('active')
-        var selector = $(this).attr('data-filter');
-        $('.portfolio-item').isotope({
-            filter: selector
-        })
-        return false;
-    })
+    //$('.portfolio-item').isotope({
+    //    itemSelector: '.Latest-post-list-wrap',
+    //    layoutMode: 'fitRows'
+    //})
+    //$('.nav-tabs .nav-item').click(function() {
+    //    $('.nxp-tab-inner ul li').removeClass('active')
+    //    $(this).addClass('active')
+    //    var selector = $(this).attr('data-filter');
+    //    $('.portfolio-item').isotope({
+    //        filter: selector
+    //    })
+    //    return false;
+    //})
     $(".modal-on").click(function(){
         $(".modal-container").css("display","block")
     });

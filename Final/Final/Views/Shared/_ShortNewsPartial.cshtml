@@ -1,0 +1,25 @@
+﻿@model List<News>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model.Take(4))
+{
+    <div class="Latest-post-list-wrap" style="margin-bottom: 25px;">
+        <div class="Gallery">
+            <div class="gallery-left">
+                <img src="~/Uploads/Images/@item.MainImage" alt="img">
+            </div>
+            <div class="gallery-body">
+                <div class="details">
+                    <div class="post-meta-single">
+                        <ul>
+                            <li><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</li>
+                        </ul>
+                    </div>
+                    <h6 class="title"><a asp-controller="Category" asp-action="Details">@item.Title </a></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "CvGnH65VnWlERZ7dV0Rq1EGyu3GJGU5yEZoAkvFhvsX8VuJwe41i5bYrek4j7T02Ppctkeoa3iveCUdjhgEMGA==",
+  "dgSpecHash": "Mp/9qq4umb85ajNnyn+4T0zt2n0EeUgUkrmsC2JBEq8bIcYMNplJELb/UlV/qsXlp2I7nn2CaBP79lolDvEbPQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\kerim\\Dropbox\\My PC (LAPTOP-I6SA5SMH)\\Desktop\\Final Asp\\Yekun\\Final\\Final\\Final.csproj",
   "expectedPackageFiles": [
@@ -167,7 +167,8 @@
     "C:\\Users\\kerim\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\kerim\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\kerim\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\kerim\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\kerim\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\kerim\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.18\\microsoft.netcore.app.host.win-x64.3.1.18.nupkg.sha512"
   ],
   "logs": []
 }

@@ -43,12 +43,18 @@ namespace Final.Controllers
             return View(await newquery.AsNoTracking().ToListAsync());
         }
 
-        public IActionResult Category(int categoryId)
+        public IActionResult Category(int categoryId,int page=1)
         {
-            
+            List<News> news1 = _newsService.GetNewsbyCategory(categoryId);
+            decimal dataPage = 12;
+            int pageCount =(int) Math.Ceiling(news1.Count / dataPage);
+            ViewBag.PageCount = pageCount;
+            ViewBag.CurrentPage = page;
+            ViewBag.Active = page;
+
             VmNews news = new VmNews()
             {
-                news = _newsService.GetNewsbyCategory(categoryId),
+                news = news1.OrderByDescending(o => o.Id).Skip(Convert.ToInt32((page - 1) * dataPage)).Take((int)dataPage).ToList(),
                 categories = _categoryService.GetCategories(),
                 socials = _socialService.GetSocials(),
                 subscribe = _subscribe.GetSubscribe()
