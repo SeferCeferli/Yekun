@@ -3,6 +3,8 @@
 @{
 
     ViewData["Title"] = "Home Page";
+    int count = 0;
+
 }
 
 <main>
@@ -11,7 +13,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    @foreach (var item in Model.news.OrderByDescending(v=>v.CreatedDate).Take(1))
+                    @foreach (var item in Model?.news.OrderByDescending(v=>v.CreatedDate).Take(1))
                     {
                         <div class="single-post-wrap style-overlay">
                             <div class="thumb">
@@ -22,7 +24,7 @@
                                 <div class="post-meta-single">
                                     <p><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</p>
                                 </div>
-                                <h5 class="title"><a asp-controller="Category" asp-action="Details">@item.Title</a></h5>
+                                <h5 class="title"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title</a></h5>
                             </div>
                         </div>
                     }
@@ -39,7 +41,7 @@
                                     <div class="post-meta-single">
                                         <p><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</p>
                                     </div>
-                                    <h6 class="title"><a asp-controller="Category" asp-action="Details">@item.Title</a></h6>
+                                    <h6 class="title"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title</a></h6>
                                 </div>
                             </div>
                         </div>
@@ -65,7 +67,7 @@
                                                 <li><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</li>
                                             </ul>
                                         </div>
-                                        <h6 class="title"><a asp-controller="Category" asp-action="Details">@item.Title</a></h6>
+                                        <h6 class="title"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title</a></h6>
                                     </div>
                                 </div>
                             </div>
@@ -111,7 +113,7 @@
                     <div class="section-slider">
                         <div class="item">
                             <div class="trending-post">
-                                @foreach (var item in Model.news.OrderByDescending(a => a.ViewCount).Take(3))
+                                @foreach (var item in Model.news.OrderByDescending(m=>m.ViewCount).Take(3))
                                 {
                                     <div class="single-post-wrap style-overlay">
                                         <div class="thumb">
@@ -121,7 +123,7 @@
                                             <div class="post-meta-single">
                                                 <p><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</p>
                                             </div>
-                                            <h6 class="title"><a asp-controller="Category" asp-action="Details">@item.Title </a></h6>
+                                            <h6 class="title"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title </a></h6>
                                         </div>
                                     </div>
                                 }
@@ -137,7 +139,7 @@
                                             <div class="post-meta-single">
                                                 <p><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</p>
                                             </div>
-                                            <h6 class="title"><a asp-controller="Category" asp-action="Details">@item.Title </a></h6>
+                                            <h6 class="title"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title </a></h6>
                                         </div>
                                     </div>
                                 }
@@ -153,7 +155,7 @@
                                             <div class="post-meta-single">
                                                 <p><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</p>
                                             </div>
-                                            <h6 class="title"><a asp-controller="Category" asp-action="Details">@item.Title </a></h6>
+                                            <h6 class="title"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title </a></h6>
                                         </div>
                                     </div>
                                 }
@@ -184,7 +186,7 @@
                                                             <li><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</li>
                                                         </ul>
                                                     </div>
-                                                    <h6 class="title"><a asp-controller="Category" asp-action="Details">@item.Title</a></h6>
+                                                    <h6 class="title"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title</a></h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -207,7 +209,7 @@
                                                             <li><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</li>
                                                         </ul>
                                                     </div>
-                                                    <h6 class="title"><a asp-controller="Category" asp-action="Details">@item.Title</a></h6>
+                                                    <h6 class="title"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title</a></h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -230,7 +232,7 @@
                                                             <li><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</li>
                                                         </ul>
                                                     </div>
-                                                    <h6 class="title"><a asp-controller="Category" asp-action="Details">@item.Title</a></h6>
+                                                    <h6 class="title"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title</a></h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -264,7 +266,7 @@
                                                         <li><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</li>
                                                     </ul>
                                                 </div>
-                                                <h6 class="title"><a asp-controller="Category" asp-action="Details">@item.Title</a></h6>
+                                                <h6 class="title"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title</a></h6>
                                                 <p>@(item.Description1.Length>100? item.Description1.Substring(0,100): item.Description1) </p>
                                             </div>
                                         </div>
@@ -312,381 +314,85 @@
                             <div class="col-md-8">
                                 <div class="nxp-tab-inner nxp-tab-post text-md-right">
                                     <ul class="nav-inner" id="ex1" role="tablist">
-                                        <li class="nav-item " data-filter="Game">
-                                            <a class="nav-link" id="ex1-tab-1" data-toggle="pill" href="#ex1-tabs-1" role="tab" aria-selected="true">
-                                                Game
-                                            </a>
-                                        </li>
-                                        <li class="nav-item" data-filter="Politics">
-                                            <a class="nav-link" id="ex1-tab-2" data-toggle="pill" href="#ex1-tabs-2" role="tab" aria-selected="false">
-                                                Politics
-                                            </a>
-                                        </li>
-                                        <li class="nav-item" data-filter="Fashion">
-                                            <a class="nav-link" id="ex1-tab-3" data-toggle="pill" href="#ex1-tabs-3" role="tab" aria-selected="false">
-                                                Fashion
-                                            </a>
-                                        </li>
-                                        <li class="nav-item" data-filter="Tech">
-                                            <a class="nav-link" id="ex1-tab-4" data-toggle="pill" href="#ex1-tabs-4" role="tab" aria-selected="false">
-                                                Tech
-                                            </a>
-                                        </li>
+                                        @foreach (var item in Model.categories.Take(5))
+                                        {
+                                            <li class="nav-item ">
+                                                <a class="nav-link" id="ex1-tab-1" data-toggle="pill" asp-controller="Category" asp-action="Category" asp-route-categoryId="@item.Id" role="tab" aria-selected="true">
+                                                    @item.Name
+                                                </a>
+                                            </li>
+                                        }
+
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="tab-content">
-                        <div class="tab-pane fade show active Game" data-filter="Game">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="thumb mb-4">
-                                        <img class="w-100" src="~/Assets/image/29.png" alt="img">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="Treding-post-list-wrap">
-                                        <div class="Gallery">
-                                            <div class="gallery-left">
-                                                <img src="~/Assets/image/1.png" alt="img">
+                        @foreach (var category in Model.news.Take(1))
+                        {
+
+                            <div class="tab-pane fade show active ">
+                                <div class="row">
+                                    <div class="col-12">
+                                        @foreach (var item in Model.news.Take(1))
+                                        {
+                                            <div class="thumb mb-4">
+                                                <img class="w-100" src="~/Uploads/Images/@item.MainImage" alt="img">
                                             </div>
-                                            <div class="gallery-body">
-                                                <div class="details">
-                                                    <div class="post-meta-single">
-                                                        <ul>
-                                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                        </ul>
+                                        }
+
+                                    </div>
+                                    <div class="col-sm-6">
+                                        @foreach (var item in Model.news.Take(3))
+                                        {
+                                            <div class="Treding-post-list-wrap">
+                                                <div class="Gallery">
+                                                    <div class="gallery-left">
+                                                        <img src="~/Uploads/Images/@item.MainImage" alt="img">
                                                     </div>
-                                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
+                                                    <div class="gallery-body">
+                                                        <div class="details">
+                                                            <div class="post-meta-single">
+                                                                <ul>
+                                                                    <li><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</li>
+                                                                </ul>
+                                                            </div>
+                                                            <h6 class="title"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title </a></h6>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+
+                                        }
                                     </div>
-                                    <div class="Treding-post-list-wrap">
-                                        <div class="Gallery">
-                                            <div class="gallery-left">
-                                                <img src="~/Assets/image/2.png" alt="img">
-                                            </div>
-                                            <div class="gallery-body">
-                                                <div class="details">
-                                                    <div class="post-meta-single">
-                                                        <ul>
-                                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                        </ul>
+                                    <div class="col-sm-6">
+                                        @foreach (var item in Model.news.Skip(3).Take(3))
+                                        {
+                                            <div class="Treding-post-list-wrap">
+                                                <div class="Gallery">
+                                                    <div class="gallery-left">
+                                                        <img src="~/Uploads/Images/@item.MainImage" alt="img">
                                                     </div>
-                                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
+                                                    <div class="gallery-body">
+                                                        <div class="details">
+                                                            <div class="post-meta-single">
+                                                                <ul>
+                                                                    <li><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</li>
+                                                                </ul>
+                                                            </div>
+                                                            <h6 class="title"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title </a></h6>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="Treding-post-list-wrap">
-                                        <div class="Gallery">
-                                            <div class="gallery-left">
-                                                <img src="~/Assets/image/3.png" alt="img">
-                                            </div>
-                                            <div class="gallery-body">
-                                                <div class="details">
-                                                    <div class="post-meta-single">
-                                                        <ul>
-                                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                        </ul>
-                                                    </div>
-                                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="Treding-post-list-wrap">
-                                        <div class="Gallery">
-                                            <div class="gallery-left">
-                                                <img src="~/Assets/image/1.png" alt="img">
-                                            </div>
-                                            <div class="gallery-body">
-                                                <div class="details">
-                                                    <div class="post-meta-single">
-                                                        <ul>
-                                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                        </ul>
-                                                    </div>
-                                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="Treding-post-list-wrap">
-                                        <div class="Gallery">
-                                            <div class="gallery-left">
-                                                <img src="~/Assets/image/2.png" alt="img">
-                                            </div>
-                                            <div class="gallery-body">
-                                                <div class="details">
-                                                    <div class="post-meta-single">
-                                                        <ul>
-                                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                        </ul>
-                                                    </div>
-                                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="Treding-post-list-wrap">
-                                        <div class="Gallery">
-                                            <div class="gallery-left">
-                                                <img src="~/Assets/image/3.png" alt="img">
-                                            </div>
-                                            <div class="gallery-body">
-                                                <div class="details">
-                                                    <div class="post-meta-single">
-                                                        <ul>
-                                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                        </ul>
-                                                    </div>
-                                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                                </div>
-                                            </div>
-                                        </div>
+
+                                        }
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="tab-pane fade  Politics" data-filter="Politics">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="thumb mb-4">
-                                        <img class="w-100" src="~/Assets/image/29.png" alt="img">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="Treding-post-list-wrap">
-                                        <div class="Gallery">
-                                            <div class="gallery-left">
-                                                <img src="~/Assets/image/1.png" alt="img">
-                                            </div>
-                                            <div class="gallery-body">
-                                                <div class="details">
-                                                    <div class="post-meta-single">
-                                                        <ul>
-                                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                        </ul>
-                                                    </div>
-                                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="Treding-post-list-wrap">
-                                        <div class="Gallery">
-                                            <div class="gallery-left">
-                                                <img src="~/Assets/image/2.png" alt="img">
-                                            </div>
-                                            <div class="gallery-body">
-                                                <div class="details">
-                                                    <div class="post-meta-single">
-                                                        <ul>
-                                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                        </ul>
-                                                    </div>
-                                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="Treding-post-list-wrap">
-                                        <div class="Gallery">
-                                            <div class="gallery-left">
-                                                <img src="~/Assets/image/3.png" alt="img">
-                                            </div>
-                                            <div class="gallery-body">
-                                                <div class="details">
-                                                    <div class="post-meta-single">
-                                                        <ul>
-                                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                        </ul>
-                                                    </div>
-                                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="Treding-post-list-wrap">
-                                        <div class="Gallery">
-                                            <div class="gallery-left">
-                                                <img src="~/Assets/image/1.png" alt="img">
-                                            </div>
-                                            <div class="gallery-body">
-                                                <div class="details">
-                                                    <div class="post-meta-single">
-                                                        <ul>
-                                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                        </ul>
-                                                    </div>
-                                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="Treding-post-list-wrap">
-                                        <div class="Gallery">
-                                            <div class="gallery-left">
-                                                <img src="~/Assets/image/2.png" alt="img">
-                                            </div>
-                                            <div class="gallery-body">
-                                                <div class="details">
-                                                    <div class="post-meta-single">
-                                                        <ul>
-                                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                        </ul>
-                                                    </div>
-                                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="Treding-post-list-wrap">
-                                        <div class="Gallery">
-                                            <div class="gallery-left">
-                                                <img src="~/Assets/image/3.png" alt="img">
-                                            </div>
-                                            <div class="gallery-body">
-                                                <div class="details">
-                                                    <div class="post-meta-single">
-                                                        <ul>
-                                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                        </ul>
-                                                    </div>
-                                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade Fashion" data-filter="Fashion">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="thumb mb-4">
-                                        <img class="w-100" src="~/Assets/image/29.png" alt="img">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    @foreach (var item in Model.news.OrderByDescending(e => e.ViewCount).Take(3))
-                                    {
-                                        <div class="single-post-wrap style-overlay">
-                                            <div class="thumb">
-                                                <img src="~/Uploads/Images/@item.MainImage" alt="img">
-                                            </div>
-                                            <div class="details">
-                                                <div class="post-meta-single">
-                                                    <p><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</p>
-                                                </div>
-                                                <h6 class="title"><a asp-controller="Category" asp-action="Details" asp-route-newsid="@item.Id">@item.Title </a></h6>
-                                            </div>
-                                        </div>
-                                    }
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="Treding-post-list-wrap">
-                                        <div class="Gallery">
-                                            <div class="gallery-left">
-                                                <img src="~/Assets/image/1.png" alt="img">
-                                            </div>
-                                            <div class="gallery-body">
-                                                <div class="details">
-                                                    <div class="post-meta-single">
-                                                        <ul>
-                                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                        </ul>
-                                                    </div>
-                                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="Treding-post-list-wrap">
-                                        <div class="Gallery">
-                                            <div class="gallery-left">
-                                                <img src="~/Assets/image/2.png" alt="img">
-                                            </div>
-                                            <div class="gallery-body">
-                                                <div class="details">
-                                                    <div class="post-meta-single">
-                                                        <ul>
-                                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                        </ul>
-                                                    </div>
-                                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="Treding-post-list-wrap">
-                                        <div class="Gallery">
-                                            <div class="gallery-left">
-                                                <img src="~/Assets/image/3.png" alt="img">
-                                            </div>
-                                            <div class="gallery-body">
-                                                <div class="details">
-                                                    <div class="post-meta-single">
-                                                        <ul>
-                                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                        </ul>
-                                                    </div>
-                                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade  Tech" data-filter="Tech">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="thumb mb-4">
-                                        <img class="w-100" src="~/Assets/image/29.png" alt="img">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    @foreach (var item in Model.news.OrderByDescending(e => e.ViewCount).Skip(3).Take(3))
-                                    {
-                                        <div class="single-post-wrap style-overlay">
-                                            <div class="thumb">
-                                                <img src="~/Uploads/Images/@item.MainImage" alt="img">
-                                            </div>
-                                            <div class="details">
-                                                <div class="post-meta-single">
-                                                    <p><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</p>
-                                                </div>
-                                                <h6 class="title"><a asp-controller="Category" asp-action="Details">@item.Title </a></h6>
-                                            </div>
-                                        </div>
-                                    }
-                                </div>
-                                <div class="col-sm-6">
-                                    @foreach (var item in Model.news.OrderByDescending(e => e.ViewCount).Skip(3).Take(3))
-                                    {
-                                        <div class="single-post-wrap style-overlay">
-                                            <div class="thumb">
-                                                <img src="~/Uploads/Images/@item.MainImage" alt="img">
-                                            </div>
-                                            <div class="details">
-                                                <div class="post-meta-single">
-                                                    <p><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</p>
-                                                </div>
-                                                <h6 class="title"><a asp-controller="Category" asp-action="Details">@item.Title </a></h6>
-                                            </div>
-                                        </div>
-                                    }
-                                </div>
-                            </div>
-                        </div>
+
+                        }
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-6 order-xl-1 col-sm-6">
@@ -766,199 +472,141 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
-                    <div class="single-post-wrap style-overlay">
-                        <div class="thumb">
-                            <img src="~/Assets/image/Main-news.png" alt="img">
-                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                        </div>
-                        <div class="details">
-                            <div class="post-meta-single">
-                                <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                    @foreach (var item in Model.news.Take(1))
+                    {
+                        <div class="single-post-wrap style-overlay">
+                            <div class="thumb">
+                                <img src="~/Uploads/Images/@item.MainImage" alt="img">
+                                <a class="tag-base tag-blue" href="cat-tech.html">@item.Category.Name</a>
                             </div>
-                            <h6 class="title"><a href="blog-details.html">Lifting Weights Makes Your Nervous</a></h6>
-                        </div>
-                    </div>
-                    <div class="Latest-post-list-wrap">
-                        <div class="Gallery">
-                            <div class="gallery-left">
-                                <img src="~/Assets/image/1.png" alt="img">
+                            <div class="details">
+                                <div class="post-meta-single">
+                                    <p><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</p>
+                                </div>
+                                <h6 class="title"><a style="font-size: 18px;" asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title</a></h6>
                             </div>
-                            <div class="gallery-body">
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                        </ul>
+                        </div>
+                    }
+                    @foreach (var item in Model.news.Skip(1).Take(3))
+                    {
+                        <div class="Latest-post-list-wrap">
+                            <div class="Gallery">
+                                <div class="gallery-left">
+                                    <img src="~/Uploads/Images/@item.MainImage" alt="img">
+                                </div>
+                                <div class="gallery-body">
+                                    <div class="details">
+                                        <div class="post-meta-single">
+                                            <ul>
+                                                <li><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</li>
+                                            </ul>
+                                        </div>
+                                        <h6 class="title"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title </a></h6>
                                     </div>
-                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="Latest-post-list-wrap">
-                        <div class="Gallery">
-                            <div class="gallery-left">
-                                <img src="~/Assets/image/2.png" alt="img">
-                            </div>
-                            <div class="gallery-body">
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                        </ul>
-                                    </div>
-                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="Latest-post-list-wrap">
-                        <div class="Gallery">
-                            <div class="gallery-left">
-                                <img src="~/Assets/image/3.png" alt="img">
-                            </div>
-                            <div class="gallery-body">
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                        </ul>
-                                    </div>
-                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                    }
+
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="single-post-wrap style-overlay">
-                        <div class="thumb">
-                            <img src="~/Assets/image/Main-news.png" alt="img">
-                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                        </div>
-                        <div class="details">
-                            <div class="post-meta-single">
-                                <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
-                            </div>
-                            <h6 class="title"><a href="blog-details.html">Lifting Weights Makes Your Nervous</a></h6>
-                        </div>
-                    </div>
-                    <div class="Latest-post-list-wrap">
-                        <div class="Gallery">
-                            <div class="gallery-left">
-                                <img src="~/Assets/image/1.png" alt="img">
-                            </div>
-                            <div class="gallery-body">
+                    @foreach (var item in Model.news)
+                    {
+                        if (item.Category.Name == "Sports")
+                        {
+                            <div class="single-post-wrap style-overlay">
+                                <div class="thumb">
+                                    <img src="~/Uploads/Images/@item.MainImage" alt="img">
+                                    <a class="tag-base tag-blue" asp-controller="Category" asp-action="Category" asp-route-categoryId="@item.Id">@item.Category.Name</a>
+                                </div>
                                 <div class="details">
                                     <div class="post-meta-single">
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                        </ul>
+                                        <p><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</p>
                                     </div>
-                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
+                                    <h6 class="title"><a style="font-size: 18px;" asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title</a></h6>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="Latest-post-list-wrap">
-                        <div class="Gallery">
-                            <div class="gallery-left">
-                                <img src="~/Assets/image/2.png" alt="img">
-                            </div>
-                            <div class="gallery-body">
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                        </ul>
+                            break;
+                        }
+
+                    }
+
+                    @foreach (var item in Model.news)
+                    {
+                        if (item.Category.Name == "Sports"&& count<3)
+                        {
+                            count++;
+                            <div class="Latest-post-list-wrap">
+                                <div class="Gallery">
+                                    <div class="gallery-left">
+                                        <img src="~/Uploads/Images/@item.MainImage" alt="img">
                                     </div>
-                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
+                                    <div class="gallery-body">
+                                        <div class="details">
+                                            <div class="post-meta-single">
+                                                <ul>
+                                                    <li><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</li>
+                                                </ul>
+                                            </div>
+                                            <h6 class="title"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title </a></h6>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="Latest-post-list-wrap">
-                        <div class="Gallery">
-                            <div class="gallery-left">
-                                <img src="~/Assets/image/3.png" alt="img">
-                            </div>
-                            <div class="gallery-body">
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                        </ul>
-                                    </div>
-                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        }
+
+
+                    }
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="single-post-wrap style-overlay">
-                        <div class="thumb">
-                            <img src="~/Assets/image/Main-news.png" alt="img">
-                            <a class="tag-base tag-blue" href="cat-tech.html">Tech</a>
-                        </div>
-                        <div class="details">
-                            <div class="post-meta-single">
-                                <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
-                            </div>
-                            <h6 class="title"><a href="blog-details.html">Lifting Weights Makes Your Nervous</a></h6>
-                        </div>
-                    </div>
-                    <div class="Latest-post-list-wrap">
-                        <div class="Gallery">
-                            <div class="gallery-left">
-                                <img src="~/Assets/image/1.png" alt="img">
-                            </div>
-                            <div class="gallery-body">
+                    @foreach (var item in Model.news)
+                    {
+                        if (item.Category.Name == "LifeStyle")
+                        {
+                            <div class="single-post-wrap style-overlay">
+                                <div class="thumb">
+                                    <img src="~/Uploads/Images/@item.MainImage" alt="img">
+                                    <a class="tag-base tag-blue" href="cat-tech.html">@item.Category.Name</a>
+                                </div>
                                 <div class="details">
                                     <div class="post-meta-single">
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                        </ul>
+                                        <p><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</p>
                                     </div>
-                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
+                                    <h6 class="title"><a style="font-size: 18px;" asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title</a></h6>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="Latest-post-list-wrap">
-                        <div class="Gallery">
-                            <div class="gallery-left">
-                                <img src="~/Assets/image/2.png" alt="img">
-                            </div>
-                            <div class="gallery-body">
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                        </ul>
+                            break;
+                        }
+
+                    }
+
+                    @foreach (var item in Model.news)
+                    {
+                        if (item.Category.Name == "LifeStyle" && count < 6)
+                        {
+                            count++;
+                            <div class="Latest-post-list-wrap">
+                                <div class="Gallery">
+                                    <div class="gallery-left">
+                                        <img src="~/Uploads/Images/@item.MainImage" alt="img">
                                     </div>
-                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
+                                    <div class="gallery-body">
+                                        <div class="details">
+                                            <div class="post-meta-single">
+                                                <ul>
+                                                    <li><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</li>
+                                                </ul>
+                                            </div>
+                                            <h6 class="title"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title </a></h6>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="Latest-post-list-wrap">
-                        <div class="Gallery">
-                            <div class="gallery-left">
-                                <img src="~/Assets/image/3.png" alt="img">
-                            </div>
-                            <div class="gallery-body">
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <ul>
-                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                        </ul>
-                                    </div>
-                                    <h6 class="title"><a href="blog-details.html">Himachal Pradesh rules in order to allow tourists </a></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        }
+
+
+                    }
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="nxp-tab-inner nxp-tab-post-two mb-4">
@@ -999,92 +647,124 @@
                 <div class="col-lg-9">
                     <div class="row">
                         <div class="col-xl-6 col-lg-12">
-                            <div class="single-post-list-wrap style-two style-white text-left">
-                                <div class="media">
-                                    <div class="media-left">
-                                        <img src="~/Assets/image/41.png" alt="img">
-                                        <a data-fancybox href="https://www.youtube.com/watch?v=WwvNiN2_Jlk" class="video-play-btn play-btn-small play-btn-gray mfp-iframe" tabindex="0"><i class="fa fa-play"></i></a>
-                                    </div>
-                                    <div class="media-body align-self-center">
-                                        <div class="details">
-                                            <div class="post-meta-single">
-                                                <ul>
-                                                    <li><a href="cat-tech.html" class="tag-base tag-blue">Tech</a></li>
-                                                    <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                </ul>
+                            @foreach (var item in Model.news.Take(1))
+                            {
+                                if (item.Category.Name == "Tech")
+                                {
+                                    <div class="single-post-list-wrap style-two style-white text-left">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <img src="~/Uploads/Images/@item.MainImage" alt="img">
+                                                <a data-fancybox href="https://www.youtube.com/watch?v=WwvNiN2_Jlk" class="video-play-btn play-btn-small play-btn-gray mfp-iframe" tabindex="0"><i class="fa fa-play"></i></a>
                                             </div>
-                                            <h6 class="title mt-2">Here’s our take on the latest technology </h6>
-                                            <p>Lorem ipsum dolor sit amet, cons ectetur elit, sed do eius mod tempor incididunt </p>
+                                            <div class="media-body align-self-center">
+                                                <div class="details">
+                                                    <div class="post-meta-single">
+                                                        <ul>
+                                                            <li><a asp-controller="Category" asp-action="Category" asp-route-categoryId="@item.Id" >@item.Category.Name</a></li>
+                                                            <li><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</li>
+                                                        </ul>
+                                                    </div>
+                                                    <h6 class="title mt-2"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id" style="text-decoration: none; color: #fff;">@item.Title</a> </h6>
+                                                    <p>@(item.Description1 !=null && item.Description1.Length>50? item.Description1.Substring(0,50): item.Description1) </p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                }
+
+                            }
+
                         </div>
                         <div class="col-xl-6 col-lg-12">
-                            <div class="single-post-list-wrap style-two style-white text-left">
-                                <div class="media">
-                                    <div class="media-left">
-                                        <img src="~/Assets/image/42.png" alt="img">
-                                        <a data-fancybox href="https://www.youtube.com/watch?v=WwvNiN2_Jlk" class="video-play-btn play-btn-small play-btn-gray mfp-iframe" tabindex="0"><i class="fa fa-play"></i></a>
-                                    </div>
-                                    <div class="media-body align-self-center">
-                                        <div class="details">
-                                            <div class="post-meta-single">
-                                                <ul>
-                                                    <li><a href="cat-tech.html" class="tag-base tag-blue">Tech</a></li>
-                                                    <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                </ul>
+                            @foreach (var item in Model.news)
+                            {
+                                if (item.Category.Name == "Fasion")
+                                {
+                                    <div class="single-post-list-wrap style-two style-white text-left">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <img src="~/Uploads/Images/@item.MainImage" alt="img">
+                                                <a data-fancybox href="https://www.youtube.com/watch?v=WwvNiN2_Jlk" class="video-play-btn play-btn-small play-btn-gray mfp-iframe" tabindex="0"><i class="fa fa-play"></i></a>
                                             </div>
-                                            <h6 class="title mt-2">Here’s our take on the latest technology </h6>
-                                            <p>Lorem ipsum dolor sit amet, cons ectetur elit, sed do eius mod tempor incididunt </p>
+                                            <div class="media-body align-self-center">
+                                                <div class="details">
+                                                    <div class="post-meta-single">
+                                                        <ul>
+                                                            <li><a href="cat-tech.html">@item.Category.Name</a></li>
+                                                            <li><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</li>
+                                                        </ul>
+                                                    </div>
+                                                    <h6 class="title mt-2"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id" style="text-decoration: none; color: #fff;">@item.Title</a> </h6>
+                                                    <p>@(item.Description1 !=null && item.Description1.Length>50? item.Description1.Substring(0,50): item.Description1) </p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                    break;
+                                }
+
+                            }
                         </div>
                         <div class="col-xl-6 col-lg-12">
-                            <div class="single-post-list-wrap style-two style-white text-left">
-                                <div class="media">
-                                    <div class="media-left">
-                                        <img src="~/Assets/image/43.png" alt="img">
-                                        <a data-fancybox href="https://www.youtube.com/watch?v=WwvNiN2_Jlk" class="video-play-btn play-btn-small play-btn-gray mfp-iframe" tabindex="0"><i class="fa fa-play"></i></a>
-                                    </div>
-                                    <div class="media-body align-self-center">
-                                        <div class="details">
-                                            <div class="post-meta-single">
-                                                <ul>
-                                                    <li><a href="cat-tech.html" class="tag-base tag-blue">Tech</a></li>
-                                                    <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                </ul>
+                            @foreach (var item in Model.news)
+                            {
+                                if (item.Category.Name == "LifeStyle")
+                                {
+                                    <div class="single-post-list-wrap style-two style-white text-left">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <img src="~/Uploads/Images/@item.MainImage" alt="img">
+                                                <a data-fancybox href="https://www.youtube.com/watch?v=WwvNiN2_Jlk" class="video-play-btn play-btn-small play-btn-gray mfp-iframe" tabindex="0"><i class="fa fa-play"></i></a>
                                             </div>
-                                            <h6 class="title mt-2">Here’s our take on the latest technology </h6>
-                                            <p>Lorem ipsum dolor sit amet, cons ectetur elit, sed do eius mod tempor incididunt </p>
+                                            <div class="media-body align-self-center">
+                                                <div class="details">
+                                                    <div class="post-meta-single">
+                                                        <ul>
+                                                            <li><a href="cat-tech.html">@item.Category.Name</a></li>
+                                                            <li><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</li>
+                                                        </ul>
+                                                    </div>
+                                                    <h6 class="title mt-2"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id" style="text-decoration: none; color: #fff;">@item.Title</a> </h6>
+                                                    <p>@(item.Description1 !=null && item.Description1.Length>50? item.Description1.Substring(0,50): item.Description1) </p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                    break;
+                                }
+
+                            }
                         </div>
                         <div class="col-xl-6 col-lg-12">
-                            <div class="single-post-list-wrap style-two style-white text-left">
-                                <div class="media">
-                                    <div class="media-left">
-                                        <img src="~/Assets/image/44.png" alt="img">
-                                        <a data-fancybox href="https://www.youtube.com/watch?v=WwvNiN2_Jlk" class="video-play-btn play-btn-small play-btn-gray mfp-iframe" tabindex="0"><i class="fa fa-play"></i></a>
-                                    </div>
-                                    <div class="media-body align-self-center">
-                                        <div class="details">
-                                            <div class="post-meta-single">
-                                                <ul>
-                                                    <li><a href="cat-tech.html" class="tag-base tag-blue">Tech</a></li>
-                                                    <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                                </ul>
+                            @foreach (var item in Model.news)
+                            {
+                                if (item.Category.Name == "Sports")
+                                {
+                                    <div class="single-post-list-wrap style-two style-white text-left">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <img src="~/Uploads/Images/@item.MainImage" alt="img">
+                                                <a data-fancybox href="https://www.youtube.com/watch?v=WwvNiN2_Jlk" class="video-play-btn play-btn-small play-btn-gray mfp-iframe" tabindex="0"><i class="fa fa-play"></i></a>
                                             </div>
-                                            <h6 class="title mt-2">Here’s our take on the latest technology </h6>
-                                            <p>Lorem ipsum dolor sit amet, cons ectetur elit, sed do eius mod tempor incididunt </p>
+                                            <div class="media-body align-self-center">
+                                                <div class="details">
+                                                    <div class="post-meta-single">
+                                                        <ul>
+                                                            <li><a href="cat-tech.html">@item.Category.Name</a></li>
+                                                            <li><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</li>
+                                                        </ul>
+                                                    </div>
+                                                    <h6 class="title mt-2"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id" style="text-decoration: none; color: #fff;">@item.Title</a> </h6>
+                                                    <p>@(item.Description1 !=null && item.Description1.Length>50? item.Description1.Substring(0,50): item.Description1) </p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                    break;
+                                }
+
+                            }
                         </div>
                     </div>
                 </div>
@@ -1100,34 +780,53 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="single-post-wrap style-overlay">
-                        <div class="thumb">
-                            <img src="~/Assets/image/video-image.png" alt="img">
-                            <a data-fancybox href="https://www.youtube.com/watch?v=WwvNiN2_Jlk" class="video-play-btn play-btn-large play-btn-yellow mfp-iframe" tabindex="0"><i class="fa fa-play"></i></a>
-                        </div>
-                        <div class="details">
-                            <div class="post-meta-single">
-                                <a class="tag-base tag-purple" href="cat-tech.html">Tech</a>
-                                <p><i class="fa fa-clock-o"></i>08.22.2020</p>
+                    @foreach (var item in Model.news.Take(1))
+                    {
+
+                        if (item.Category.Name == "Tech")
+                        {
+                            <div class="single-post-wrap style-overlay">
+                                <div class="thumb">
+                                    <img src="~/Uploads/Images/@item.MainImage" style="width:100%;" alt="img">
+                                    <a data-fancybox href="https://www.youtube.com/watch?v=WwvNiN2_Jlk" class="video-play-btn play-btn-large play-btn-yellow mfp-iframe" tabindex="0"><i class="fa fa-play"></i></a>
+                                </div>
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <a class="tag-base tag-purple" href="cat-tech.html">@item.Category.Name</a>
+                                        <p><i class="fa fa-clock-o"></i>08.22.2020</p>
+                                    </div>
+                                    <h6 class="title"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title</a></h6>
+                                </div>
                             </div>
-                            <h6 class="title"><a href="blog-details.html">Scientists Discover the Switch That Makes Human</a></h6>
-                        </div>
-                    </div>
+                        }
+
+
+                    }
                 </div>
                 <div class="col-lg-6">
-                    <div class="single-post-wrap style-overlay">
-                        <div class="thumb">
-                            <img src="~/Assets/image/video-image2.png" alt="img">
-                            <a data-fancybox href="https://www.youtube.com/watch?v=WwvNiN2_Jlk" class="video-play-btn play-btn-large play-btn-yellow mfp-iframe" tabindex="0"><i class="fa fa-play"></i></a>
-                        </div>
-                        <div class="details">
-                            <div class="post-meta-single">
-                                <a class="tag-base tag-purple" style="background: #097bed;" href="cat-tech.html">Tech</a>
-                                <p><i class="fa fa-clock-o"></i>08.22.2020</p>
+                    @foreach (var item in Model.news)
+                    {
+
+                        if (item.Category.Name == "Fasion")
+                        {
+                            <div class="single-post-wrap style-overlay">
+                                <div class="thumb">
+                                    <img src="~/Uploads/Images/@item.MainImage" style="width:100%;" alt="img">
+                                    <a data-fancybox href="https://www.youtube.com/watch?v=WwvNiN2_Jlk" class="video-play-btn play-btn-large play-btn-yellow mfp-iframe" tabindex="0"><i class="fa fa-play"></i></a>
+                                </div>
+                                <div class="details">
+                                    <div class="post-meta-single">
+                                        <a class="tag-base tag-purple" href="cat-tech.html">@item.Category.Name</a>
+                                        <p><i class="fa fa-clock-o"></i>08.22.2020</p>
+                                    </div>
+                                    <h6 class="title"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title</a></h6>
+                                </div>
                             </div>
-                            <h6 class="title"><a href="blog-details.html">Scientists Discover the Switch That Makes Human</a></h6>
-                        </div>
-                    </div>
+                            break;
+                        }
+
+
+                    }
                 </div>
             </div>
         </div>

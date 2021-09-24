@@ -25,14 +25,13 @@ namespace Final.Controllers
             _categoryService = categoryService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? newsId,int? categoryId)
         {
-
 
             VmNews news = new VmNews()
             {
-                
                 news =_newsService.GetNews(),
+                news2=_newsService.GetNews(newsId),
                 categories = _categoryService.GetCategories(),
                 subscribe =_subscribe.GetSubscribe()
             };

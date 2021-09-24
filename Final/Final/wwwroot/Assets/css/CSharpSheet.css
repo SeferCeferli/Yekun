@@ -1,0 +1,12 @@
+﻿#Slider-news .container .row .col-lg-3:first-child .section-slider .item .slick-prev{
+    top:-7%;
+}
+#Slider-news .container .row .col-lg-3:first-child .section-slider .item .slick-next {
+    top: -7%;
+}
+#Tech-Page .container .row  .section-slider .item .slick-prev {
+    top: -7%;
+}
+#Tech-Page .container .row .section-slider .item .slick-next {
+    top: -7%;
+}

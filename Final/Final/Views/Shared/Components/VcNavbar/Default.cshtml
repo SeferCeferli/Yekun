@@ -1,7 +1,72 @@
-﻿
+﻿@model VmFooter
 @{
     Layout = null;
 }
+<div class="header-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-7">
+                <div class="topbar-menu">
+                    <ul class="align-self-center">
+                        <li><a asp-controller="About" asp-action="Index">About Us</a></li>
+                        <li><a asp-controller="Advertisment" asp-action="Index">Advertisment</a></li>
+                        <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+                        <li><a asp-controller="Sitemap" asp-action="Index">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-5">
+                <div class="topbar-social">
+                    <div class="topbar-date">
+                        <i class="fas fa-table"></i> Saturday, October 7
+                    </div>
+                    <ul class="social-area">
+                        @foreach (var item in Model.socials)
+                        {
+                            <li>
+                                <a href="@item.Link" name="@item.Name" class="@item.Color" style="color:@item.Color;width:40px;height:40px;display:inline-block;"><i style="background:@item.Background;color:@item.Color;width:40px;height:40px;border-radius:50%;line-height:40px;text-align:center" class="@item.Icon"></i></a>
+                            </li>
+                        }
+
+                        @*<li>
+                            <a href="" class="twitter-icon"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="" class="youtube-icon"><i class="fab fa-youtube"></i></a>
+                        </li>
+                        <li>
+                            <a href="" class="instagram-icon"><i class="fab fa-instagram"></i></a>
+                        </li>
+                        <li>
+                            <a href="" class="google-icon"><i class="fab fa-google-plus-g"></i></a>
+                        </li>*@
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="header-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 col-lg-5">
+                <div class="top-logo">
+                    <a asp-controller="Home" asp-action="Index" class="main-logo">
+                        <img src="~/Assets/image/logo-2.png" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-7">
+                <div class="right-reklam">
+                    <a href="#" class="logo-right">
+                        <img src="~/Assets/image/reklam.png" alt="">
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-light  ">
     <div class="container">
@@ -59,7 +124,7 @@
             </ul>
             <div class="nav-right-part nav-right-part-desktop">
                 <div class="menu-search-inner">
-                    <form  method="get" asp-controller="Category" asp-action="Index">
+                    <form method="get" asp-controller="Category" asp-action="Index">
                         <input type="search" placeholder="Search For" value="@ViewData["GetNewsDetails"]" name="Newssearch">
                         <button type="submit" class="submit-btn"><i class="fa fa-search"></i></button>
                     </form>

@@ -55,13 +55,14 @@ namespace Final.Controllers
             VmNews news = new VmNews()
             {
                 news = news1.OrderByDescending(o => o.Id).Skip(Convert.ToInt32((page - 1) * dataPage)).Take((int)dataPage).ToList(),
+                news4=_newsService.GetNews(),
                 categories = _categoryService.GetCategories(),
                 socials = _socialService.GetSocials(),
                 subscribe = _subscribe.GetSubscribe()
             };
             return View(news);
         }
-
+        [HttpPost]
         public IActionResult Subscribe(VmNews model)
         {
             if (ModelState.IsValid)
@@ -92,5 +93,6 @@ namespace Final.Controllers
             };
             return View(news);
         }
+
     }
 }

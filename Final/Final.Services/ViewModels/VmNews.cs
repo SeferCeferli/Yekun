@@ -8,6 +8,8 @@ namespace Final.Services.ViewModels
     public class VmNews
     {
         public List<News> news { get; set; }
+        public List<News> news4 { get; set; }
+        public List<News> news3 { get; set; }
         public List<Social> socials { get; set; }
         public List<Category> categories { get; set; }
         public List<Tags> Tags { get; set; }

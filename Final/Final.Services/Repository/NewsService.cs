@@ -44,7 +44,7 @@ namespace Final.Services.Repository
 
         public List<News> GetNewsbyCategory(int? id)
         {
-            return _context.Categories.Include(b=>b.News).FirstOrDefault(n=>n.Id==id).News.ToList();
+            return _context.Categories.Include(b=>b.News).FirstOrDefault(n=>n.Id==id)?.News.ToList();
         }
 
         public News UpdateNews(News model)

@@ -32,7 +32,7 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="single-post-wrap style-box">
                                     <div class="thumb">
-                                        <img src="~/Uploads/Images/@item.MainImage" style="width: 100%;" alt="img">
+                                        <img src="~/Uploads/Images/@item.MainImage" style="width: 100%; height:192px;" alt="img">
                                     </div>
                                     <div class="details">
                                         <div class="post-meta-single mb-4 pt-1">
@@ -109,109 +109,53 @@
                 <div class="section-slider">
                     <div class="item">
                         <div class="trending-post">
-                            <div class="single-post-wrap style-overlay">
-                                <div class="thumb">
-                                    <img src="~/Assets/image/slider1.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                            @foreach (var item in Model.news4.OrderByDescending(v=>v.ViewCount).Take(3))
+                            {
+                                <div class="single-post-wrap style-overlay">
+                                    <div class="thumb">
+                                        <img src="~/Uploads/Images/@item.MainImage" alt="img">
                                     </div>
-                                    <h6 class="title"><a href="blog-details.html">The FAA will test drone </a></h6>
-                                </div>
-                            </div>
-                            <div class="single-post-wrap style-overlay">
-                                <div class="thumb">
-                                    <img src="~/Assets/image/slider2.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    <div class="details">
+                                        <div class="post-meta-single">
+                                            <p><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</p>
+                                        </div>
+                                        <h6 class="title"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title </a></h6>
                                     </div>
-                                    <h6 class="title"><a href="blog-details.html">Flight schedule and quarantine</a></h6>
                                 </div>
-                            </div>
-                            <div class="single-post-wrap style-overlay">
-                                <div class="thumb">
-                                    <img src="~/Assets/image/slider3.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
-                                    </div>
-                                    <h6 class="title"><a href="blog-details.html">Indore bags cleanest city</a></h6>
-                                </div>
-                            </div>
+                            }
+
                         </div>
                         <div class="trending-post">
-                            <div class="single-post-wrap style-overlay">
-                                <div class="thumb">
-                                    <img src="~/Assets/image/slider1.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                            @foreach (var item in Model.news4.OrderByDescending(a => a.ViewCount).Skip(3).Take(3))
+                            {
+                                <div class="single-post-wrap style-overlay">
+                                    <div class="thumb">
+                                        <img src="~/Uploads/Images/@item.MainImage" alt="img">
                                     </div>
-                                    <h6 class="title"><a href="blog-details.html">The FAA will test drone </a></h6>
-                                </div>
-                            </div>
-                            <div class="single-post-wrap style-overlay">
-                                <div class="thumb">
-                                    <img src="~/Assets/image/slider2.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    <div class="details">
+                                        <div class="post-meta-single">
+                                            <p><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</p>
+                                        </div>
+                                        <h6 class="title"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title </a></h6>
                                     </div>
-                                    <h6 class="title"><a href="blog-details.html">Flight schedule and quarantine</a></h6>
                                 </div>
-                            </div>
-                            <div class="single-post-wrap style-overlay">
-                                <div class="thumb">
-                                    <img src="~/Assets/image/slider3.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
-                                    </div>
-                                    <h6 class="title"><a href="blog-details.html">Indore bags cleanest city</a></h6>
-                                </div>
-                            </div>
+                            }
                         </div>
                         <div class="trending-post">
-                            <div class="single-post-wrap style-overlay">
-                                <div class="thumb">
-                                    <img src="~/Assets/image/slider1.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                            @foreach (var item in Model.news4.OrderByDescending(a => a.ViewCount).Skip(6).Take(3))
+                            {
+                                <div class="single-post-wrap style-overlay">
+                                    <div class="thumb">
+                                        <img src="~/Uploads/Images/@item.MainImage" alt="img">
                                     </div>
-                                    <h6 class="title"><a href="blog-details.html">The FAA will test drone </a></h6>
-                                </div>
-                            </div>
-                            <div class="single-post-wrap style-overlay">
-                                <div class="thumb">
-                                    <img src="~/Assets/image/slider2.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
+                                    <div class="details">
+                                        <div class="post-meta-single">
+                                            <p><i class="fa fa-clock-o"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</p>
+                                        </div>
+                                        <h6 class="title"><a asp-controller="Category" asp-action="Details" asp-route-newsId="@item.Id">@item.Title </a></h6>
                                     </div>
-                                    <h6 class="title"><a href="blog-details.html">Flight schedule and quarantine</a></h6>
                                 </div>
-                            </div>
-                            <div class="single-post-wrap style-overlay">
-                                <div class="thumb">
-                                    <img src="~/Assets/image/slider3.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <div class="post-meta-single">
-                                        <p><i class="fa fa-clock-o"></i>December 26, 2018</p>
-                                    </div>
-                                    <h6 class="title"><a href="blog-details.html">Indore bags cleanest city</a></h6>
-                                </div>
-                            </div>
+                            }
                         </div>
                     </div>
 
