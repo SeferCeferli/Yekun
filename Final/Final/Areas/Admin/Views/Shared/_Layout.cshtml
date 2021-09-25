@@ -517,6 +517,7 @@
                         </li>
                     </ul>
                 </li>
+
                 <li>
                     <a href="javascript:;" class="side-menu @(ViewBag.Active == "News"?"side-menu--active":"")">
                         <div class="side-menu__icon"> <i data-feather="box"></i> </div>
@@ -531,6 +532,21 @@
                         </li>
                     </ul>
                 </li>
+
+                <li>
+                    <a href="javascript:;" class="side-menu @(ViewBag.Active == "News"?"side-menu--active":"")">
+                        <div class="side-menu__icon"> <i data-feather="box"></i> </div>
+                        <div class="side-menu__title"> Subscribe <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
+                    </a>
+                    <ul class="">
+                        <li>
+                            <a asp-area="Admin" asp-controller="AdmSubscribe" asp-action="Index" class="side-menu ">
+                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                <div class="side-menu__title"> Subscribe </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li>
                     <a href="javascript:;" class="side-menu @(ViewBag.Active == "Tags"?"side-menu--active":"")">
                         <div class="side-menu__icon"> <i data-feather="box"></i> </div>
@@ -541,6 +557,20 @@
                             <a asp-area="Admin" asp-controller="AdmTags" asp-action="Index" class="side-menu ">
                                 <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                                 <div class="side-menu__title"> Tags </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="side-menu @(ViewBag.Active == "Message"?"side-menu--active":"")">
+                        <div class="side-menu__icon"> <i data-feather="box"></i> </div>
+                        <div class="side-menu__title"> Message <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
+                    </a>
+                    <ul class="">
+                        <li>
+                            <a asp-area="Admin" asp-controller="AdmMessage" asp-action="Index" class="side-menu ">
+                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                <div class="side-menu__title"> Message </div>
                             </a>
                         </li>
                     </ul>
